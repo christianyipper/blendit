@@ -3,6 +3,8 @@ module.exports = {
     content: [
         "./src/**/*.{js,jsx,ts,tsx}",
     ],
+
+    // The theme is where we can declare breakpoints, define fonts, add custom values, and create custom animations
     theme: {
         screens: {
             desktop: { 'min': '720px' },

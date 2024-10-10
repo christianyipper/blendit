@@ -44,8 +44,10 @@ function Tutorial({colorProp}) {
             flex flex-row justify-center items-center 
             border-pink-500 bg-grey-900
             ">
+                {/* If we need to use a one-off value that doesn't make sense to include in our theme, we can use square brackets */}
+                <h2 className="text-white absolute left-[27px] mobile:hidden">Hover Effects</h2>
+
                 {/* You can also add sudo elements (like hover state) */}
-                <h2 className="text-white absolute left-10 mobile:hidden">Hover Effects</h2>
                 <p className="text-green-500 hover:bg-pink-500 hover:text-2xl duration-500 ease-in-out">hover-transition</p>
             </div>
 
