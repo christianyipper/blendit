@@ -4,6 +4,7 @@ function Tutorial({colorProp}) {
     return (
 
         // Use Tailwind's classes to style components. You can find all the documentation at tailwindcss.com
+        // The classes should auto-complete to help you. You can hover each class for more info
         <section className="w-full h-screen bg-black">
 
             {/* We use React Helmet to change our metadata in the html head when this component is loaded */}
@@ -63,6 +64,9 @@ function Tutorial({colorProp}) {
                 <p className={`opacity-0 animate-fade animation-delay-1300 ${colorProp}`}>delayed-animation</p>
             </div>
         </section>
+
+        // Be sure to visit the "tailwind.config.js" file
+        // This is where we define our custom themes like colors, animations, breakpoints. We can also add tailwind-specific plugins.
     );
 }
 

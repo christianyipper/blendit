@@ -5,20 +5,20 @@ module.exports = {
     ],
     theme: {
         screens: {
-            'desktop': { 'min': '720px' },
-            'mobile': { 'max': '520px' },
+            desktop: { 'min': '720px' },
+            mobile: { 'max': '520px' },
         },
         extend: {
             fontFamily: {
                 // Define your fonts here.
-                'climate': ['Climate Crisis', 'serif'],
-                'poppins': ['Poppins', 'sans-serif'],
+                climate: ['Climate Crisis', 'serif'],
+                poppins: ['Poppins', 'sans-serif'],
             },
             animation: {
                 // Define your animations here.
-                'shake': 'shake 1s ease-in-out infinite alternate',
-                'spin': 'spin 0.5s ease-in-out alternate',
-                'fade': 'fade 1s cubic-bezier( 0.175, 0.885, 0.32, 1.5 ) forwards',
+                shake: 'shake 1s ease-in-out infinite alternate',
+                spin: 'spin 0.5s ease-in-out alternate',
+                fade: 'fade 1s cubic-bezier( 0.175, 0.885, 0.32, 1.5 ) forwards',
             },
             keyframes: {
                 // Create keyframe animations here.
@@ -40,29 +40,29 @@ module.exports = {
         },
         colors: {
             transparent: 'transparent',
-            'white': '#ffffff',
-            'black': '#000000',
-            'pink': {
+            white: '#ffffff',
+            black: '#000000',
+            pink: {
                 100: '#F9D7E7',
                 500: '#D31A74',
                 900: '#8F124E',
             },
-            'yellow': {
+            yellow: {
                 100: '#FFF1BE',
                 500: '#F4B13E',
                 900: '#CC8100',
             },
-            'green': {
+            green: {
                 100: '#F2F8E0',
                 500: '#B8D94C',
                 900: '#769A00',
             },
-            'blue': {
+            blue: {
                 100: '#D2D2ED',
                 500: '#312FAA',
                 900: '#313083',
             },
-            'grey': {
+            grey: {
                 100: '#FFFDF5',
                 500: '#635D55',
                 900: '#403931',
