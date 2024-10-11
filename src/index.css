@@ -11,9 +11,14 @@
         font-size: 3rem;
     }
     h2 {
-        font-size: 1.5rem;
+        /* font-size: 1.5rem; */
+        font-size: 3rem;
     }
-    p, a, button, li, ul {
+    h3 {
+        font-family: 'poppins';
+        font-size: 1.25rem;
+    }
+    p, a, button, li, ul, input {
         font-family: 'poppins';
         font-size: 1rem;
     }
