@@ -18,7 +18,7 @@ function Footer() {
             <div
                 className="col-span-4"
             >
-                <h3 className="text-grey-500 mb-4">Get in Touch!</h3>
+                <h4 className="text-grey-500 mb-4">Get in Touch!</h4>
                 <form className="flex flex-col gap-4 items-center">
                     <input
                         className="border-[1px] border-pink-500 p-5 rounded-xl w-full"

@@ -44,6 +44,7 @@ module.exports = {
             transparent: 'transparent',
             white: '#ffffff',
             black: '#000000',
+            background: '#FFFDF5',
             pink: {
                 100: '#F9D7E7',
                 500: '#D31A74',
