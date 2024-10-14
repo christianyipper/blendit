@@ -5,25 +5,26 @@ function LocationCard( {image, title, line1, line2} ) {
     return (
         <div
             className="
-            w-fit h-fit
+            min-w-fit h-full
             flex flex-col
             rounded-2xl
             overflow-hidden
+            first:ml-5
+            last:mr-5
             "
         >
             <img
                 className="
-                w-96
-                aspect-video
+                h-full
+                object-cover object-center aspect-video
                 "
                 src={image}
-            >
-            </img>
+            />
             <div
                 className="
                 bg-white
                 w-full
-                p-5 rounded-2xl
+                p-5 rounded-b-2xl
                 flex flex-col gap-4
                 "
             >
@@ -32,12 +33,11 @@ function LocationCard( {image, title, line1, line2} ) {
                     w-24
                     "
                     src={logo}
-                >    
-                </img>
+                />    
                 <hgroup>
                     <h3
                         className="
-                        text-xl
+                        text-xl text-nowrap
                         text-pink-900
                         "
                     >
@@ -51,7 +51,11 @@ function LocationCard( {image, title, line1, line2} ) {
                     >
                         Address:   
                     </h4>
-                    <p>
+                    <p
+                        className="
+                        text-grey-500
+                        "
+                    >
                         {line1}
                         <br></br>
                         {line2}

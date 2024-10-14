@@ -21,30 +21,46 @@ function Footer() {
                 <h4 className="text-grey-500 mb-4">Get in Touch!</h4>
                 <form className="flex flex-col gap-4 items-center">
                     <input
-                        className="border-[1px] border-pink-500 p-5 rounded-xl w-full"
+                        className="
+                        border-[1px] border-pink-500
+                        p-5 rounded-xl w-full
+                        "
                         required="required"
                         type="text"
                         placeholder="Name"
                     />
                     <input 
-                        className="border-[1px] border-pink-500 p-5 rounded-xl w-full"
+                        className="
+                        border-[1px] border-pink-500
+                        p-5 rounded-xl w-full
+                        "
                         required="required"
                         type="phone"
                         placeholder="Phone Number"
                     />
                     <input
-                        className="border-[1px] border-pink-500 p-5 rounded-xl w-full"
+                        className="
+                        border-[1px] border-pink-500
+                        p-5 rounded-xl w-full
+                        "
                         required="required"
                         type="email"
                         placeholder="Email Address"
                     />
                     <textarea
-                        className="border-[1px] border-pink-500 p-5 rounded-xl w-full"
+                        className="
+                        border-[1px] border-pink-500
+                        p-5 rounded-xl w-full
+                        "
                         required="required"
                         placeholder="Your Message"
                     />
                     <button
-                        className="w-fit bg-pink-500 text-white py-3 px-10 rounded-full">
+                        className="
+                        w-fit bg-pink-500 text-white
+                        py-3 px-10 rounded-full
+                        "
+                    >
                         Submit
                     </button>
                 </form>
@@ -64,9 +80,19 @@ function Footer() {
                 flex flex-col gap-5 justify-between items-end
                 mobile: col-span-3
                 ">
-                <p className="font-bold">Order Ahead</p>
+                <p 
+                    className="
+                    text-grey-900
+                    font-bold
+                    "
+                >
+                    Order Ahead
+                </p>
                 <button
-                    className="w-fit bg-pink-500 text-white py-3 px-6 rounded-full text-nowrap
+                    className="
+                    bg-pink-500
+                    text-white text-nowrap
+                    w-fit py-3 px-6 rounded-full
                     ">
                     Blend your Bowl
                 </button>

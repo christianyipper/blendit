@@ -13,15 +13,14 @@ function Locations() {
             w-full h-fit
             relative
             grid
-            mobile:grid-cols-4 gap-20 p-5
-            overflow-hidden
+            mobile:grid-cols-1 gap-20 py-5
             bg-yellow-100
             "
         >
             <hgroup
                 className="
-                
-                mobile:col-span-4
+                px-5
+                mobile:col-span-1
                 "
             >
                 <h1
@@ -42,8 +41,8 @@ function Locations() {
                 <div
                     className="
                     flex flex-row
-                    overflow-x-scroll
-                    h-full w-fit
+                    overflow-x-scroll scroll-smooth scrollbar-none
+                    w-full h-full
                     gap-4
                     "
                 >
