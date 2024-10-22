@@ -8,7 +8,7 @@ function About() {
         bg-yellow-100
         ">
             <h2>About Us</h2>
-            <p>Blend it.</p>
+            <p className="font-climate text-2xl -mt-4 mb-2">Blend it.</p>
             <AboutCard
                 heading="Who We Are"
                 text="Blend It was founded by three individuals with a shared vision: to bring fresh, nutritious smoothie bowls to the West Coast in the most fun and convenient way possible. With backgrounds in health, technology, and food service, our team is united by a passion for innovation and customer satisfaction. We’ve combined our expertise to create a platform that puts you in control, ensuring every bowl you create is as satisfying as it is healthy."

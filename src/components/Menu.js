@@ -11,7 +11,7 @@ function Menu() {
         p-4 gap-4 relative grid
         bg-grey-100">
             <h2>Our Menu</h2>
-            <p>Varies by season</p>
+            <p className="font-climate text-2xl -mt-4 mb-2">Varies by season</p>
             <MenuCard
                 heading="Berry Bowl"
                 headingColor="text-pink-900"
