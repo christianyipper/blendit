@@ -17,6 +17,7 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 
 import Hero from './components/Hero';
+import Locations from './components/Locations';
 
 // Browser Router allows us to create routes to other "screens" (this is like React's "Native Stack Navigator" where inside our NavigationContainer we created Stack.Screen for all our screen components)
 const router = createBrowserRouter(
@@ -38,7 +39,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 {/* We can also put components here which will be loaded globally. This means "Nav" will load on the page no matter which route is active */}
                 <Nav/>
                 <RouterProvider router={router} />
-                <Hero/>
                 <Footer/>
             </>
         </HelmetProvider>
