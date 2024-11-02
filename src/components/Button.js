@@ -1,4 +1,4 @@
-function Button({ text, color, bg, border }) {
+function Button({ text, color, bg, border, onClick }) {
     return (
         <button className={`
             w-fit 
@@ -8,7 +8,9 @@ function Button({ text, color, bg, border }) {
             ${color} ${bg} ${border}
             border-2
             transition-colors duration-300
-        `}>{ text }</button>
+        `}
+        onClick={onClick}
+        >{ text }</button>
     );
 }
 
