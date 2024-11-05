@@ -5,6 +5,7 @@ import StepWizard from "react-step-wizard";
 import Base from "./steps/Base";
 import Fruits from "./steps/Fruits";
 import Toppings from "./steps/Toppings";
+import Complete from "./steps/Complete";
 
 function Builder() {
     
@@ -91,6 +92,11 @@ function Builder() {
                 hashKey={"toppings"}
                 updateIngredients={(item) => updateIngredients("toppings", item)} 
                 selectedIngredients={selectedIngredients.toppings} 
+                allIngredients={Object.values(selectedIngredients).flat()}
+            />
+            {/* Complete */}
+            <Complete 
+                hashKey={"complete"}
                 allIngredients={Object.values(selectedIngredients).flat()}
             />
         </StepWizard>

@@ -1,59 +1,30 @@
 import Button from "../components/Button";
-
-
+import { smoothieData } from "../data/ingredients";
 
 function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, allIngredients }) {
+
+    // this is a variable that specifies the step
+    // this is how we get the ingredients for the current step 
+    const baseIngredients = smoothieData.steps.find(step => step.id === 'base').ingredients;
+        
     return (
         <div>
             <h1 className="text-pink-500 mt-24">Step {currentStep}</h1>
-                    <Button 
-                        text="Blueberry"
-                        color="text-pink-500"
-                        bg="transparent"
-                        border="border-pink-500"
-                        onClick={() => updateIngredients("Blueberry")}
-                    />
-                    <Button 
-                        text="Strawberry"
-                        color="text-pink-500"
-                        bg="transparent"
-                        border="border-pink-500"
-                        onClick={() => updateIngredients("Strawberry")}
-                    />
-                    <Button 
-                        text="Mango"
-                        color="text-pink-500"
-                        bg="transparent"
-                        border="border-pink-500"
-                        onClick={() => updateIngredients("Mango")}
-                    />
-                    <Button 
-                        text="Banana"
-                        color="text-pink-500"
-                        bg="transparent"
-                        border="border-pink-500"
-                        onClick={() => updateIngredients("Banana")}
-                    />
-                    <Button 
-                        text="Raspberry"
-                        color="text-pink-500"
-                        bg="transparent"
-                        border="border-pink-500"
-                        onClick={() => updateIngredients("Raspberry")}
-                    /><Button 
-                        text="Raspberry"
-                        color="text-pink-500"
-                        bg="transparent"
-                        border="border-pink-500"
-                        onClick={() => updateIngredients("Raspberry")}
-                    />
-                    <Button 
-                        text="Acai"
-                        color="text-pink-500"
-                        bg="transparent"
-                        border="border-pink-500"
-                        onClick={() => updateIngredients("Acai")}
-                    />
+            
+            {/* loop through the base ingredients */}
+            {baseIngredients.map((ingredient) => (
+                // render a button for each ingredient
+                <Button
+                    // set the button's text to the ingredient's name
+                    text={ingredient.name}
+                    color="text-pink-500"
+                    bg="transparent"
+                    border="border-pink-500"
+                    // update the selected ingredients when the button is clicked
+                    onClick={() => updateIngredients(ingredient.image)}
+                />
+            ))}
+
                 <Button 
                     text="Next"
                     color="text-white"
@@ -61,16 +32,33 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                     border="border-pink-500"
                     onClick={nextStep}
                 />
-                <p className="text-grey-500">
+                `<p className="text-grey-500">
+                    Current Order:
+                </p>
+                <div className="flex flex-row flex-wrap gap-4">
                     {/* if the order has less than 1 item, display a message 
                         if the order has more than 1 item, display the order with a comma*/}
-                    Current Order: {selectedIngredients.length > 0 ? selectedIngredients.join(', ') : "No items selected"}
-                </p>
+                    {selectedIngredients.length > 0
+                    ?
+                        selectedIngredients.map((item) => (
+                        <img width="100px" src={item}></img>
+                    ))
+                        : <p>No items selected</p> }
+                </div>
                 <p className="text-grey-900 font-bold">
+                    Full Order:
+                </p>
+                <div className="flex flex-row flex-wrap gap-4">
                     {/* if the order has less than 1 item, display a message 
                         if the order has more than 1 item, display the order with a comma*/}
-                    Full Order: {allIngredients.length > 0 ? allIngredients.join(', ') : "No items selected"}
-                </p>
+                    {allIngredients.length > 0
+                    ?
+                        allIngredients.map((item) => (
+                        <img width="100px" src={item}></img>
+                    ))
+                        : <p>No items selected</p> }
+                </div>`
+
         </div>
     );
 }
