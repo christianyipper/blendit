@@ -21,34 +21,34 @@
 
 
 // Base Ingredients
-import BlueberryImage from '../ingredients/base/Blueberry.png';
-import BananaImage from '../ingredients/base/Banana.png';
-import StrawberryImage from '../ingredients/base/Strawberry.png';
-import MangoImage from '../ingredients/base/Mango.png';
-import RaspberryImage from '../ingredients/base/Raspberry.png';
-import AcaiImage from '../ingredients/base/Acai.png';
+import BlueberryImage from '../assets/ingredients/base/Blueberry.png';
+import BananaImage from '../assets/ingredients/base/Banana.png';
+import StrawberryImage from '../assets/ingredients/base/Strawberry.png';
+import MangoImage from '../assets/ingredients/base/Mango.png';
+import RaspberryImage from '../assets/ingredients/base/Raspberry.png';
+import AcaiImage from '../assets/ingredients/base/Acai.png';
 
 // Fruit Ingredients
-import BananaSlicedImage from '../ingredients/fruits/BananaSliced.png';
-import BananaSlicedLayoutImage from '../ingredients/fruits/layout/BananaSliced.png';
-import StrawberrySlicedImage from '../ingredients/fruits/StrawberrySliced.png';
-import StrawberrySlicedLayoutImage from '../ingredients/fruits/layout/StrawberrySliced.png';
-import BlueberriesImage from '../ingredients/fruits/Blueberries.png';
-import BlueberriesLayoutImage from '../ingredients/fruits/layout/Blueberries.png';
-import BlackberriesImage from '../ingredients/fruits/Blackberries.png';
-import BlackberriesLayoutImage from '../ingredients/fruits/layout/Blackberries.png';
-import PineappleImage from '../ingredients/fruits/Pineapple.png';
-import PineappleLayoutImage from '../ingredients/fruits/layout/Pineapple.png';
-import KiwiImage from '../ingredients/fruits/Kiwi.png';
-import KiwiLayoutImage from '../ingredients/fruits/layout/Kiwi.png';
+import BananaSlicedImage from '../assets/ingredients/fruits/BananaSliced.png';
+import BananaSlicedLayoutImage from '../assets/ingredients/fruits/layout/Banana.png';
+import StrawberrySlicedImage from '../assets/ingredients/fruits/StrawberrySliced.png';
+import StrawberrySlicedLayoutImage from '../assets/ingredients/fruits/layout/Strawberry.png';
+import BlueberriesImage from '../assets/ingredients/fruits/Blueberries.png';
+import BlueberriesLayoutImage from '../assets/ingredients/fruits/layout/Blueberries.png';
+import BlackberriesImage from '../assets/ingredients/fruits/Blackberries.png';
+import BlackberriesLayoutImage from '../assets/ingredients/fruits/layout/Blackberries.png';
+import PineappleImage from '../assets/ingredients/fruits/Pineapple.png';
+import PineappleLayoutImage from '../assets/ingredients/fruits/layout/Pineapple.png';
+import KiwiImage from '../assets/ingredients/fruits/Kiwi.png';
+import KiwiLayoutImage from '../assets/ingredients/fruits/layout/Kiwi.png';
 
 // Topping Ingredients
-import CacaoNibsImage from '../ingredients/toppings/CacaoNibs.png';
-import ChocolateImage from '../ingredients/toppings/Chocolate.png';
-import CoconutImage from '../ingredients/toppings/Coconut.png';
-import GranolaImage from '../ingredients/toppings/Granola.png';
-import PeanutButterImage from '../ingredients/toppings/PeanutButter.png';
-import PepitasImage from '../ingredients/toppings/Pepitas.png';
+import CacaoNibsImage from '../assets/ingredients/toppings/CacaoNibs.png';
+import ChocolateImage from '../assets/ingredients/toppings/Chocolate.png';
+import CoconutImage from '../assets/ingredients/toppings/Coconut.png';
+import GranolaImage from '../assets/ingredients/toppings/Granola.png';
+import PeanutButterImage from '../assets/ingredients/toppings/PeanutButter.png';
+import PepitasImage from '../assets/ingredients/toppings/Pepitas.png';
 
 
 export const smoothieData = {
@@ -180,6 +180,9 @@ export const getLayoutImage = (fruitId) => {
     const fruit = smoothieData.steps[1].ingredients.find(item => item.id === fruitId);
     return fruit ? fruit.layoutImage : null;
 };
+
+// Example:
+// const bananaSliced = getLayoutImage('banana-sliced');  // 'banana-sliced.png'
 
 export const getBaseRGB = (baseId) => {
     const base = smoothieData.steps[0].ingredients.find(item => item.id === baseId);
