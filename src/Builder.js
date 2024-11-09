@@ -42,8 +42,8 @@ function Builder() {
                         updatedIngredients = [...currentIngredients, item];
                     } else {
                         // if the amount of ingredients is more than 3
-                        // alert the user
-                        alert("You can only select up to 3 ingredients");
+                        // warn the user
+                        console.log("You can only select up to 3 ingredients");
                         // set the updated ingredients to the current ingredients
                         updatedIngredients = currentIngredients;
                     }
@@ -75,7 +75,7 @@ function Builder() {
                 // runs the updateIngredients function when an item is selected
                 // tells the function that we're on the "base" step, and passes the selected item
                 updateIngredients={(item) => updateIngredients("base", item)} 
-                // used to display the ingredients in the current step
+                // used to display the ingredients and RGb in the current step
                 selectedIngredients={selectedIngredients.base}
                 // used to display all ingredients in the order
                 allIngredients={Object.values(selectedIngredients).flat()}
