@@ -1,7 +1,7 @@
 import Button from "../components/Button";
 import { smoothieData } from "../data/ingredients";
 
-function Fruits({ nextStep, currentStep, previousStep, updateIngredients, selectedIngredients, allIngredients }) {
+function Fruits({ nextStep, currentStep, previousStep, updateIngredients, selectedIngredients, allIngredients, baseRGBs }) {
 
     // this is a variable that specifies the step
     // this is how we get the ingredients for the current step 
@@ -66,6 +66,10 @@ function Fruits({ nextStep, currentStep, previousStep, updateIngredients, select
                         <img width="100px" src={item}></img>
                     ))
                         : <p>No items selected</p> }
+                    <div 
+                        className="smoothie-base rounded-full w-24 h-24"
+                    >
+                    </div>
                 </div>
         </div>
     );

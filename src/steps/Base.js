@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import FruitButton from "../components/FruitButton";
 import { smoothieData, getBaseRGB } from "../data/ingredients";
 
-function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, allIngredients }) {
+function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, allIngredients, baseRGBs }) {
 
     // this is a variable that specifies the step
     // this is how we get the ingredients for the current step 
@@ -28,7 +28,16 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                         link={ingredient.image}
                         onClick={() => { 
                             // update the selected ingredients when the button is clicked
-                            updateIngredients(ingredient);
+                            updateIngredients(ingredient.image);
+                            
+                            // if the baseRGBs array already includes the ingredient's RGB color
+                            if (baseRGBs.includes(ingredient.rgb)) {
+                                // remove the ingredient's RGB color from the array
+                                baseRGBs.splice(baseRGBs.indexOf(ingredient.rgb), 1);
+                            } else if (baseRGBs.length < 3) {
+                                // if the baseRGBs array has less than 3 items, add the ingredient's RGB color to the array
+                                baseRGBs.push(ingredient.rgb)
+                            };
                         }}
                     />
                 ))}
@@ -50,9 +59,13 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                     {selectedIngredients.length > 0
                     ?
                         selectedIngredients.map((item) => (
-                        <img width="100px" src={item.image}></img>
+                        <img width="100px" src={item}></img>
                     ))
                         : <p>No items selected</p> }
+                    <div 
+                        className="smoothie-base rounded-full w-24 h-24"
+                    >
+                    </div>
                 </div>
                 <p className="text-grey-900 font-bold">
                     Full Order:
@@ -63,29 +76,10 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                     {allIngredients.length > 0
                     ?
                         allIngredients.map((item) => (
-                        <img width="100px" src={item.image}></img>
+                        <img width="100px" src={item}></img>
                     ))
                         : <p>No items selected</p> }
                 </div>
-                <p className="text-grey-900 font-bold">
-                    RGB:
-                </p>
-                <div className="flex flex-row flex-wrap gap-4">
-                    {/* if the order has less than 1 item, display a message 
-                        if the order has more than 1 item, display the order with a comma*/}
-                    {selectedIngredients.length > 0
-                    ?
-                        selectedIngredients.map((item) => (
-                            <p>{item.rgb[0]}, {item.rgb[1]}, {item.rgb[2]}</p> 
-                        ))
-                    : <p>No items selected</p> }
-                </div>
-                <p className="text-grey-900 font-bold">
-                    Blended Colors:
-                </p>
-                <p>
-
-                </p>
         </div>
     );
 }
