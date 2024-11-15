@@ -109,7 +109,6 @@ function Hero() {
             relative 
             overflow-hidden
             bg-background
-            mt-16
             desktop:grid-cols-12
             desktop:mt-0
         ">
@@ -121,18 +120,17 @@ function Hero() {
                     <circle cx={'-30%'} cy={'50%'} r={'70%'} className={`${colorScheme.secondary} transition-colors duration-300`} />
             </svg>
 
-            <svg viewBox="0 0 50 50" className="w-full h-full absolute hidden mix-blend-multiply desktop:block opacity-70">
-                    <circle cx={'35%'} cy={'113%'} r={'40%'} className={`${colorScheme.circle} transition-colors duration-300`} />
+            <svg viewBox="0 0 50 50" className="w-full h-full absolute hidden mix-blend-multiply desktop:block opacity-60">
+                    <circle cx={'35%'} cy={'100%'} r={'40%'} className={`${colorScheme.circle} transition-colors duration-300`} />
             </svg>
 
             <div className="
                 col-span-4 
-                flex flex-col gap-5 
-                mt-10
-                ml-0
+                flex flex-col gap-4
+                justify-start
+                mt-20
                 z-[2]
-                desktop:col-span-6 gap-8 ml-10 flex justify-center
-                desktop:ml-10
+                desktop:col-span-6 desktop:gap-8 desktop:ml-10 desktop:justify-center
             ">
                 <h3 className={`transition-colors duration-300 ${colorScheme.text}`}>
                     Top it. Love it.
@@ -165,6 +163,7 @@ function Hero() {
                         py-3 px-6 
                         rounded-full 
                         text-nowrap 
+                        bg-background
                         ${colorScheme.text}
                         ${colorScheme.text.replace('text', 'border')} 
                         transition-colors duration-300 border-2 
@@ -178,7 +177,7 @@ function Hero() {
                             key={index}
                             src={bowl}
                             alt={`Smoothie Bowl ${index + 1}`}
-                            className="size-20 cursor-pointer rounded-full shadow-md"
+                            className="size-20 cursor-pointer rounded-full shadow-md desktop:size-24"
                             onClick={() => setSelectedBowl(index)}
                         />
                     ))}
@@ -188,7 +187,7 @@ function Hero() {
             <section className="
                 col-span-4 
                 flex align-end 
-                mt-96
+                mt-80
                 rotate-0
                 translate-y-40
                 translate-x-0
@@ -196,7 +195,6 @@ function Hero() {
                 desktop:-rotate-45
                 desktop:translate-y-80 
                 desktop:translate-x-80
-                mix-blend-multiply
             ">
                 <SpinningBowlSelector selectedBowl={selectedBowl} bowls={bowls} circleColor={colorScheme.secondary} />
             </section>
