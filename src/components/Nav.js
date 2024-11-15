@@ -10,7 +10,7 @@ function Nav() {
     };
 
     return (
-        <section className="
+        <nav className="
         w-full p-4 top-0 mt-0
         fixed z-50
         bg-grey-100
@@ -41,7 +41,7 @@ function Nav() {
                     </div>
                 </div>
             </div>
-        </section>
+        </nav>
     );
 }
 
