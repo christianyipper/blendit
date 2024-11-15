@@ -3,9 +3,8 @@ import logo from '../assets/icons/BlendIt-Full.svg'
 function Footer() {
     return (
         <section className="
-            w-full grid
-            relative
-            grid-cols-4 gap-y-20 p-5
+            w-full max-w-[1920px] grid relative
+            grid-cols-4 gap-y-20 m-auto p-5
             desktop:grid-cols-12 desktop:gap-x-6
             ">
             <hgroup
@@ -133,11 +132,10 @@ function Footer() {
                 xmlns="http://www.w3.org/2000/svg">
                 <circle 
                     className="
-                    desktop:-translate-x-3/4 desktop:-translate-y-1/4 desktop:scale-150
                     "
                     r="300"
                     cx={'100%'}
-                    cy={'75%'}
+                    cy={'100%'}
                 />
             </svg>
         </section>

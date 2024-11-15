@@ -130,7 +130,7 @@ function Hero() {
                 justify-start
                 mt-20
                 z-[2]
-                desktop:col-span-6 desktop:gap-8 desktop:ml-10 desktop:justify-center
+                desktop:col-span-6 desktop:gap-8 desktop:justify-center
             ">
                 <h3 className={`transition-colors duration-300 ${colorScheme.text}`}>
                     Top it. Love it.
