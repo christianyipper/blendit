@@ -5,10 +5,13 @@ function Footer() {
         <section className="
             w-full grid
             relative
-            mobile:grid-cols-4 gap-20 p-5
+            grid-cols-4 gap-y-20 p-5
+            desktop:grid-cols-12 desktop:gap-x-6
             ">
             <hgroup
-                className="col-span-4"
+                className="
+                col-span-4
+                "
             >
                 <h2 className="text-pink-500">Blend It.</h2>
                 <h2 className="text-pink-900">Top It.</h2>
@@ -16,10 +19,17 @@ function Footer() {
                 <a className="text-grey-500" href="mailto:hello@blendit.com">hello@blendit.com</a>
             </hgroup>
             <div
-                className="col-span-4"
+                className="
+                col-span-4
+                desktop:col-start-8 col-span-5
+                "
             >
                 <h4 className="text-grey-500 mb-4">Get in Touch!</h4>
-                <form className="flex flex-col gap-4 items-center">
+                <form className="
+                    flex flex-col gap-4 items-center
+                    desktop:items-end
+                    "
+                >
                     <input
                         className="
                         border-[1px] border-pink-500
@@ -68,7 +78,8 @@ function Footer() {
             <ul
                 className="
                 flex flex-col gap-5
-                mobile: col-span-1
+                col-span-1
+                desktop:col-span-2
                 ">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Menu</a></li>
@@ -78,7 +89,8 @@ function Footer() {
             <div
                 className="
                 flex flex-col gap-5 justify-between items-end
-                mobile: col-span-3
+                col-span-3
+                desktop:items-start
                 ">
                 <p 
                     className="
@@ -97,14 +109,21 @@ function Footer() {
                     Blend your Bowl
                 </button>
             </div>
-            <img
-                className="
-                w-full
-                mobile:col-start-2 col-span-2
-                "
-                alt="Blend It."
-                src={logo}
-            />  
+            <div className="
+                h-full w-full 
+                desktop:col-start-11
+                col-start-2 col-span-2
+                desktop:grid desktop:place-items-end
+            " 
+            >
+                <img
+                    className="
+                    w-full
+                    "
+                    alt="Blend It."
+                    src={logo}
+                />  
+            </div>
             <svg 
                 className="
                 w-full h-full
@@ -113,6 +132,9 @@ function Footer() {
                 "
                 xmlns="http://www.w3.org/2000/svg">
                 <circle 
+                    className="
+                    desktop:-translate-x-3/4 desktop:-translate-y-1/4 desktop:scale-150
+                    "
                     r="300"
                     cx={'100%'}
                     cy={'75%'}
