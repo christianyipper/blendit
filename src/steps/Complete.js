@@ -11,6 +11,9 @@ function Complete({ allIngredients }) {
                     <img width="100px" src={item}></img>
                 ))
                     : "No items selected"}
+                <div 
+                    className="smoothie-base rounded-full w-24 h-24"
+                ></div>
             </div>
 
         </div>

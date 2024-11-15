@@ -64,6 +64,9 @@ function Toppings({ nextStep, currentStep, previousStep, updateIngredients, sele
                         <img width="100px" src={item}></img>
                     ))
                         : <p>No items selected</p> }
+                    <div 
+                        className="smoothie-base rounded-full w-24 h-24"
+                    ></div>
                 </div>
         </div>
     );

@@ -9,21 +9,23 @@ const SpinningBowlSelector = ({ selectedBowl, bowls, circleColor }) => {
     // Calculate the angle of each bowl in the circle
     const bowlCount = bowls.length;
     const angle = 360 / bowlCount;
-    const radius = 290;
+    const radius = 400;
 
     return (
         <div className="
             relative 
             mx-auto 
             w-full h-full
+            scale-1
+            desktop:scale-150
         ">
             {/* Background circle */}
             <div 
                 className="
                     absolute 
                     top-1/2 left-1/2 
-                    transform -translate-x-1/2 -translate-y-1/2 z-[-1] 
-                    transition-colors duration-300"
+                    transform -translate-x-1/2 -translate-y-1/2
+                    transition-colors duration-300 mix-blend-multiply"
                 style={{
                     width: `${radius * 2}px`,
                     height: `${radius * 2}px`,
@@ -38,7 +40,7 @@ const SpinningBowlSelector = ({ selectedBowl, bowls, circleColor }) => {
             <div 
                 className="
                     w-full h-full 
-                    transition-transform duration-500 ease-in-out"
+                    transition-transform duration-500 ease-in-out z-10"
                 style={{ transform: `rotate(${-selectedBowl * angle}deg)` }}
             >
                 {bowls.map((bowl, index) => {
@@ -87,10 +89,10 @@ function Hero() {
     
     // Color schemes for different bowls
     const colorSchemes = [
-        { primary: 'bg-pink-500', secondary: 'fill-pink-100', text: 'text-pink-900' },
-        { primary: 'bg-yellow-500', secondary: 'fill-yellow-100', text: 'text-yellow-900' },
-        { primary: 'bg-green-500', secondary: 'fill-green-100', text: 'text-green-900' },
-        { primary: 'bg-blue-500', secondary: 'fill-blue-100', text: 'text-blue-900' }
+        { primary: 'bg-pink-500', secondary: 'fill-pink-100', text: 'text-pink-900', circle: 'fill-pink-500' },
+        { primary: 'bg-yellow-500', secondary: 'fill-yellow-100', text: 'text-yellow-900', circle: 'fill-yellow-500' },
+        { primary: 'bg-green-500', secondary: 'fill-green-100', text: 'text-green-900', circle: 'fill-green-500' },
+        { primary: 'bg-blue-500', secondary: 'fill-blue-100', text: 'text-blue-900', circle: 'fill-blue-500' },
     ];
 
     const [colorScheme, setColorScheme] = useState(colorSchemes[0]);
@@ -102,21 +104,33 @@ function Hero() {
 
     return (
         <section className="
-            w-full h-screen grid
+            w-full min-h-screen grid
             grid-cols-4 p-5 gap-20
             relative 
             overflow-hidden
             bg-background
+            desktop:grid-cols-12
+            desktop:mt-0
         ">
-            <svg viewBox="0 0 100 100" className="w-full h-full absolute">
-                    <circle cx={'120%'} cy={'0%'} r={'100%'} className={`${colorScheme.secondary} transition-colors duration-300`} />
+            <svg viewBox="0 0 100 100" className="w-full h-full absolute block desktop:hidden">
+                    <circle cx={'140%'} cy={'0%'} r={'100%'} className={`${colorScheme.secondary} transition-colors duration-300`} />
+            </svg>
+
+            <svg viewBox="0 0 50 50" className="w-full h-full absolute hidden mix-blend-multiply desktop:block">
+                    <circle cx={'-30%'} cy={'50%'} r={'70%'} className={`${colorScheme.secondary} transition-colors duration-300`} />
+            </svg>
+
+            <svg viewBox="0 0 50 50" className="w-full h-full absolute hidden mix-blend-multiply desktop:block opacity-60">
+                    <circle cx={'35%'} cy={'100%'} r={'40%'} className={`${colorScheme.circle} transition-colors duration-300`} />
             </svg>
 
             <div className="
                 col-span-4 
-                flex flex-col gap-5 
-                mt-10
+                flex flex-col gap-4
+                justify-start
+                mt-20
                 z-[2]
+                desktop:col-span-6 desktop:gap-8 desktop:ml-10 desktop:justify-center
             ">
                 <h3 className={`transition-colors duration-300 ${colorScheme.text}`}>
                     Top it. Love it.
@@ -129,10 +143,10 @@ function Hero() {
                         alt="Blend It."
                         style={{ filter: `hue-rotate(${selectedBowl * 90}deg)` }}
                 />
-                <p className='text-grey-900'>
+                <p className='text-grey-900 desktop:w-5/6'>
                     Welcome to Blend It, where healthy eating is effortless and fun! Order fresh nutritious smoothie bowls with uniquely interactive and customizable ordering experience. We put the power of choice in your own hands!
                 </p>
-                <div className="flex gap-5 justify-center">
+                <div className="flex gap-5 justify-center desktop:justify-start">
                     <button className={`
                         w-fit 
                         py-3 px-6 
@@ -149,6 +163,7 @@ function Hero() {
                         py-3 px-6 
                         rounded-full 
                         text-nowrap 
+                        bg-background
                         ${colorScheme.text}
                         ${colorScheme.text.replace('text', 'border')} 
                         transition-colors duration-300 border-2 
@@ -156,13 +171,13 @@ function Hero() {
                         View Menu
                     </button>
                 </div>
-                <div className='flex gap-3 justify-center mt-6'>
+                <div className='flex gap-3 justify-center mt-6 desktop:justify-start desktop:mt-0'>
                     {bowls.map((bowl, index) => (
                         <img
                             key={index}
                             src={bowl}
                             alt={`Smoothie Bowl ${index + 1}`}
-                            className="size-20 cursor-pointer rounded-full shadow-md"
+                            className="size-20 cursor-pointer rounded-full shadow-md desktop:size-24"
                             onClick={() => setSelectedBowl(index)}
                         />
                     ))}
@@ -172,8 +187,14 @@ function Hero() {
             <section className="
                 col-span-4 
                 flex align-end 
-                mt-10
-                translate-y-40 
+                mt-80
+                rotate-0
+                translate-y-40
+                translate-x-0
+                desktop:col-span-6
+                desktop:-rotate-45
+                desktop:translate-y-80 
+                desktop:translate-x-80
             ">
                 <SpinningBowlSelector selectedBowl={selectedBowl} bowls={bowls} circleColor={colorScheme.secondary} />
             </section>

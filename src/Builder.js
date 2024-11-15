@@ -42,8 +42,8 @@ function Builder() {
                         updatedIngredients = [...currentIngredients, item];
                     } else {
                         // if the amount of ingredients is more than 3
-                        // alert the user
-                        alert("You can only select up to 3 ingredients");
+                        // warn the user
+                        console.log("You can only select up to 3 ingredients");
                         // set the updated ingredients to the current ingredients
                         updatedIngredients = currentIngredients;
                     }
@@ -59,14 +59,50 @@ function Builder() {
             });
         };
 
-    // triggered when step changes, logs step details
-    const onStepChange = (stats) => {
-        // console.log(stats);
-    };
+    // this is a variable that holds the RGB colors
+    const [baseRGBs] = useState([]);
+
+    // selects the smoothie base element so it can be colored
+    const smoothieBase = document.querySelectorAll('.smoothie-base');
+
+    // if the baseRGBs array has 3 elements
+    if (baseRGBs.length === 3) {
+
+        // calculate the average RGB color
+        let Fruit1 = baseRGBs[0];
+        let Fruit2 = baseRGBs[1];
+        let Fruit3 = baseRGBs[2];
+
+        let Red = (Fruit1[0] + Fruit2[0] + Fruit3[0]) / 3; 
+        let Green = (Fruit1[1] + Fruit2[1] + Fruit3[1]) / 3;
+        let Blue = (Fruit1[2] + Fruit2[2] + Fruit3[2]) / 3;
+
+        // round the RGB values
+        Red = Math.round(Red);
+        Green = Math.round(Green);
+        Blue = Math.round(Blue);
+
+        // convert the RGB values to a string
+        let baseRGB = 'rgb(' + [Red, Green, Blue].toString() + ')';
+
+        // color the smoothie base
+        smoothieBase.forEach(item => {
+            item.style.backgroundColor = baseRGB
+            } 
+        );
+
+    } else if (baseRGBs.length > 1 && baseRGBs.length < 3) {
+
+        // remove color from the smoothie base
+        smoothieBase.forEach(item => {
+            item.style.backgroundColor = 'unset'
+            } 
+        );
+
+    }
 
     return (
         <StepWizard
-            onStepChange={onStepChange}
             isHashEnabled={true}
         >
             {/* Step 1 */}
@@ -75,10 +111,13 @@ function Builder() {
                 // runs the updateIngredients function when an item is selected
                 // tells the function that we're on the "base" step, and passes the selected item
                 updateIngredients={(item) => updateIngredients("base", item)} 
-                // used to display the ingredients in the current step
+                // used to display the ingredients and RGb in the current step
                 selectedIngredients={selectedIngredients.base}
                 // used to display all ingredients in the order
+                // flattens the array as all the ingredients are nested in their own steps
                 allIngredients={Object.values(selectedIngredients).flat()}
+                // used to color the smoothie base
+                baseRGBs={baseRGBs}
             />
             {/* Step 2 */}
             <Fruits
@@ -86,6 +125,7 @@ function Builder() {
                 updateIngredients={(item) => updateIngredients("fruits", item)}
                 selectedIngredients={selectedIngredients.fruits} 
                 allIngredients={Object.values(selectedIngredients).flat()}
+                baseRGBs={baseRGBs}
             />
             {/* Step 3 */}
             <Toppings
@@ -93,6 +133,7 @@ function Builder() {
                 updateIngredients={(item) => updateIngredients("toppings", item)} 
                 selectedIngredients={selectedIngredients.toppings} 
                 allIngredients={Object.values(selectedIngredients).flat()}
+                baseRGBs={baseRGBs}
             />
             {/* Complete */}
             <Complete 

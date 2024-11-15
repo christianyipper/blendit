@@ -3,6 +3,7 @@ import Tutorial from "./Tutorial";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Menu from "./components/Menu";
+import Locations from "./components/Locations";
 
 function Home() {
     return (
@@ -13,6 +14,7 @@ function Home() {
             <Hero/>
             <About/>
             <Menu/>
+            <Locations/>
         </div>
     );
 }
