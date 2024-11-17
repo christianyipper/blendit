@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import BlenditSVG from '../assets/icons/BlenditSVG';
-import Button from './Button';
+import ButtonLink from './ButtonLink';
 
 function Nav() {
 
@@ -18,27 +18,22 @@ function Nav() {
             <div className="
             flex flex-row justify-between items-center
             ">
-                <BlenditSVG
-                    color="#D31A74"
-                />
+                <a href="/">
+                    <BlenditSVG
+                        color="#D31A74"
+                    />
+                </a>
                 <div className="
                 flex flex-row justify-between items-center
                 gap-4
                 ">
-                    <Button
+                    <ButtonLink
                         text="Order ahead"
                         color="text-white"
                         bg="bg-pink-500"
                         border="border-pink-500"
+                        link="builder"
                     />
-                    <div className="
-                    w-12 h-10 
-                    relative flex flex-col items-center justify-between
-                    ">
-                        <div className="w-full h-1 rounded-lg bg-pink-500"/>
-                        <div className="w-full h-1 rounded-lg bg-pink-500"/>
-                        <div className="w-full h-1 rounded-lg bg-pink-500"/>
-                    </div>
                 </div>
             </div>
         </section>

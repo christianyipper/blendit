@@ -4,8 +4,17 @@ import Button from "./Button";
 function About() {
     return (
         <section className="
+<<<<<<< Updated upstream
         p-4 gap-4 relative grid
         bg-yellow-100
+=======
+        p-5 flex flex-col
+        w-full h-fit
+        text-grey-900 bg-yellow-100
+        relative
+        desktop:m-5 
+        desktop:w-[calc(100%-2.5rem)] desktop:h-full
+>>>>>>> Stashed changes
         ">
             <h2>About Us</h2>
             <p className="font-climate text-2xl -mt-4 mb-2">Blend it.</p>
