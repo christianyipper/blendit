@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import FruitButton from "../components/FruitButton";
 import { smoothieData } from "../data/ingredients";
 
 function Fruits({ nextStep, currentStep, previousStep, updateIngredients, selectedIngredients, allIngredients, baseRGBs }) {
@@ -18,21 +19,24 @@ function Fruits({ nextStep, currentStep, previousStep, updateIngredients, select
                     border="border-pink-500"
                     onClick={previousStep}
                 />
-
+                <div className="
+                    flex flex-row flex-nowrap gap-4 relative
+                    overflow-x-scroll
+                ">
                     {/* loop through the fruits ingredients */}
                     {fruitIngredients.map((ingredient) => (
                         // render a button for each ingredient
-                        <Button
+                        <FruitButton
                             // set the button's text to the ingredient's name
                             text={ingredient.name}
                             color="text-pink-500"
-                            bg="transparent"
-                            border="border-pink-500"
+                            bg="bg-yellow-100"
+                            link={ingredient.image}
                             // update the selected ingredients when the button is clicked
                             onClick={() => updateIngredients(ingredient.layoutImage)}
                         />
                     ))}
-
+                </div>
                 <Button 
                     text="Next"
                     color="text-white"
@@ -40,20 +44,17 @@ function Fruits({ nextStep, currentStep, previousStep, updateIngredients, select
                     border="border-pink-500"
                     onClick={nextStep}
                 />
-
-                <p className="text-grey-500">
+                {/* <p className="text-grey-500">
                     Current Order:
                 </p>
                 <div className="flex flex-row flex-wrap gap-4">
-                    {/* if the order has less than 1 item, display a message 
-                        if the order has more than 1 item, display the order with a comma*/}
                     {selectedIngredients.length > 0
                     ?
                         selectedIngredients.map((item) => (
                         <img width="100px" src={item}></img>
                     ))
                         : <p>No items selected</p> }
-                </div>
+                </div> */}
                 <p className="text-grey-900 font-bold">
                     Full Order:
                 </p>
@@ -63,7 +64,7 @@ function Fruits({ nextStep, currentStep, previousStep, updateIngredients, select
                     {allIngredients.length > 0
                     ?
                         allIngredients.map((item) => (
-                        <img width="100px" src={item}></img>
+                        <img width="36px" src={item}></img>
                     ))
                         : <p>No items selected</p> }
                     <div 

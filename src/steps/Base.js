@@ -15,7 +15,8 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
             <h1 className="text-pink-500 mt-24">Step {currentStep}</h1>
             
             <div className="
-                flex flex-row flex-wrap gap-4
+                flex flex-row flex-nowrap gap-4 relative
+                overflow-x-scroll
             ">
                 {/* loop through the base ingredients */}
                 {baseIngredients.map((ingredient) => (
@@ -50,12 +51,10 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                     border="border-pink-500"
                     onClick={nextStep}
                 />
-                <p className="text-grey-500">
+                {/* <p className="text-grey-500">
                     Current Order:
                 </p>
                 <div className="flex flex-row flex-wrap gap-4">
-                    {/* if the order has less than 1 item, display a message 
-                        if the order has more than 1 item, display the order with a comma*/}
                     {selectedIngredients.length > 0
                     ?
                         selectedIngredients.map((item) => (
@@ -66,7 +65,7 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                         className="smoothie-base rounded-full w-24 h-24"
                     >
                     </div>
-                </div>
+                </div> */}
                 <p className="text-grey-900 font-bold">
                     Full Order:
                 </p>
@@ -76,7 +75,7 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                     {allIngredients.length > 0
                     ?
                         allIngredients.map((item) => (
-                        <img width="100px" src={item}></img>
+                        <img width="36px" src={item}></img>
                     ))
                         : <p>No items selected</p> }
                 </div>
