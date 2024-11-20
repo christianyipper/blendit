@@ -1,7 +1,8 @@
 function FruitButton({ text, color, bg, onClick, link, desc }) {
     return (
-        <button className={`
-            w-64 h-48 relative flex flex-col justify-evenly items-center
+        <div className="w-36">
+            <button className={`
+            w-36 h-48 relative grid grid-cols-1 place-items-center justify-evenly
             py-3 
             rounded-lg 
             text-nowrap 
@@ -9,12 +10,13 @@ function FruitButton({ text, color, bg, onClick, link, desc }) {
             transition-colors duration-300
             `}
             onClick={onClick}
-        >
-            <img src={link} alt={desc}
-            className="h-36 w-36 aspect-square"
-            />
-            <p className="text-center bold">{text}</p>
-        </button>
+            >
+                <img src={link} alt={desc}
+                    className="h-24 w-24 aspect-square"
+                />
+                <p className="text-center bold">{text}</p>
+            </button>
+        </div>
     );
 }
 
