@@ -3,19 +3,47 @@ import Button from "../components/Button";
 import FruitButton from "../components/FruitButton";
 import { smoothieData, getBaseRGB } from "../data/ingredients";
 
-function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, allIngredients, baseRGBs }) {
+function Base({ nextStep, currentStep, updateIngredients, allIngredients, baseRGBs }) {
+
+    // State to track all selected ingredients
+    const [selectedIngredients, setSelectedIngredients] = useState([]);
+    const handleClick = (ingredient) => {
+
+        // Check if the item is already selected
+        const isSelected = selectedIngredients.includes(ingredient.name);
+
+        // Allow toggling off the selected item or adding a new one only if less than 3 are selected
+        if (isSelected || selectedIngredients.length < 3) {
+            // Update the selected ingredients
+            updateIngredients(ingredient.image);
+
+            // Manage the baseRGBs array
+            if (baseRGBs.includes(ingredient.rgb)) {
+                baseRGBs.splice(baseRGBs.indexOf(ingredient.rgb), 1);
+            } else if (baseRGBs.length < 3) {
+                baseRGBs.push(ingredient.rgb);
+            }
+
+            // Toggle the selected ingredient in the array
+            setSelectedIngredients((prevSelected) =>
+                prevSelected.includes(ingredient.name)
+                ? prevSelected.filter((name) => name !== ingredient.name) // Remove if already selected
+                : [...prevSelected, ingredient.name] // Add if not selected
+            );
+        }
+    };
 
     // this is a variable that specifies the step
     // this is how we get the ingredients for the current step 
     const baseIngredients = smoothieData.steps.find(step => step.id === 'base').ingredients;
-
-    // this is a variable that holds the RGB colors
+    
     return (
         <div>
             <h1 className="text-pink-500 mt-24">Step {currentStep}</h1>
             
             <div className="
-                flex flex-row flex-wrap gap-4
+                flex flex-row flex-nowrap gap-4 px-4 relative
+                overflow-x-scroll
             ">
                 {/* loop through the base ingredients */}
                 {baseIngredients.map((ingredient) => (
@@ -24,25 +52,17 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                         // set the button's text to the ingredient's name
                         text={ingredient.name}
                         color="text-pink-500"
-                        bg="bg-yellow-100"
+                        bg={
+                                selectedIngredients.includes(ingredient.name)
+                                ? "bg-yellow-500"
+                                : "bg-yellow-100"
+                        }
                         link={ingredient.image}
-                        onClick={() => { 
-                            // update the selected ingredients when the button is clicked
-                            updateIngredients(ingredient.image);
-                            
-                            // if the baseRGBs array already includes the ingredient's RGB color
-                            if (baseRGBs.includes(ingredient.rgb)) {
-                                // remove the ingredient's RGB color from the array
-                                baseRGBs.splice(baseRGBs.indexOf(ingredient.rgb), 1);
-                            } else if (baseRGBs.length < 3) {
-                                // if the baseRGBs array has less than 3 items, add the ingredient's RGB color to the array
-                                baseRGBs.push(ingredient.rgb)
-                            };
-                        }}
+                        onClick={() => handleClick(ingredient)}
                     />
                 ))}
             </div>
-
+            <div className="gap-2 px-4 flex flex-row">
                 <Button 
                     text="Next"
                     color="text-white"
@@ -50,12 +70,11 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                     border="border-pink-500"
                     onClick={nextStep}
                 />
-                <p className="text-grey-500">
+            </div>
+                {/* <p className="text-grey-500">
                     Current Order:
                 </p>
                 <div className="flex flex-row flex-wrap gap-4">
-                    {/* if the order has less than 1 item, display a message 
-                        if the order has more than 1 item, display the order with a comma*/}
                     {selectedIngredients.length > 0
                     ?
                         selectedIngredients.map((item) => (
@@ -66,20 +85,20 @@ function Base({ nextStep, currentStep, updateIngredients, selectedIngredients, a
                         className="smoothie-base rounded-full w-24 h-24"
                     >
                     </div>
-                </div>
-                <p className="text-grey-900 font-bold">
+                </div> */}
+                {/* <p className="text-grey-900 font-bold">
                     Full Order:
                 </p>
                 <div className="flex flex-row flex-wrap gap-4">
-                    {/* if the order has less than 1 item, display a message 
-                        if the order has more than 1 item, display the order with a comma*/}
+                    if the order has less than 1 item, display a message 
+                        if the order has more than 1 item, display the order with a comma
                     {allIngredients.length > 0
                     ?
                         allIngredients.map((item) => (
-                        <img width="100px" src={item}></img>
+                        <img width="36px" src={item}></img>
                     ))
                         : <p>No items selected</p> }
-                </div>
+                </div> */}
         </div>
     );
 }
