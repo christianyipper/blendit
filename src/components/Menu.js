@@ -7,10 +7,18 @@ import BowlYellow from "../assets/hero/bowl-yellow.png";
 
 function Menu() {
     return (
-        <section className="p-4 relative grid bg-grey-100 desktop:pt-32 desktop:pb-40">
-            <div className="w-full mx-auto">
-                <h2>Our Menu</h2>
-                <p className="font-climate text-2xl -mt-4 mb-2">Varies by season</p>
+        <section id="menu" className="p-4 relative grid bg-grey-100 scroll-mt-20 desktop:pb-16">
+                <h2 className="
+                    text-grey-900
+                ">
+                    Our Menu
+                </h2>
+                <h4 className="
+                    text-grey-500
+                    -mt-2 mb-4
+                ">
+                    Varies by season.
+                </h4>
                 
                 {/* Container for cards with responsive grid */}
                 <div className="flex flex-row flex-wrap gap-4 justify-center mt-10">
@@ -22,10 +30,10 @@ function Menu() {
                         image={BowlPink}
                         imageAlt="Berry Bowl Image"
                         buttonColor="text-white"
-                        buttonBg="bg-pink-500"
+                        buttonBg="bg-pink-900"
                         buttonBorder="border-transparent"
-                        outlineColor="text-pink-500"
-                        outlineBorder="border-pink-500"
+                        outlineColor="text-pink-900"
+                        outlineBorder="border-pink-900"
                         pillText1="fruity"
                         pillDisplay1="visible"
                         pillText2="sweet"
@@ -41,10 +49,10 @@ function Menu() {
                         image={BowlYellow}
                         imageAlt="Tropical Bowl Image"
                         buttonColor="text-white"
-                        buttonBg="bg-yellow-500"
+                        buttonBg="bg-yellow-900"
                         buttonBorder="border-transparent"
-                        outlineColor="text-yellow-500"
-                        outlineBorder="border-yellow-500"
+                        outlineColor="text-yellow-900"
+                        outlineBorder="border-yellow-900"
                         pillText1="fruity"
                         pillDisplay1="visible"
                         pillText2="refreshing"
@@ -60,10 +68,10 @@ function Menu() {
                         image={BowlBlue}
                         imageAlt="Power Bowl Image"
                         buttonColor="text-white"
-                        buttonBg="bg-blue-500"
+                        buttonBg="bg-blue-900"
                         buttonBorder="border-transparent"
-                        outlineColor="text-blue-500"
-                        outlineBorder="border-blue-500"
+                        outlineColor="text-blue-900"
+                        outlineBorder="border-blue-900"
                         pillText1="nutty"
                         pillDisplay1="visible"
                         pillText2="protein"
@@ -79,10 +87,10 @@ function Menu() {
                         image={BowlGreen}
                         imageAlt="Nature Bowl Image"
                         buttonColor="text-white"
-                        buttonBg="bg-green-500"
+                        buttonBg="bg-green-900"
                         buttonBorder="border-transparent"
-                        outlineColor="text-green-500"
-                        outlineBorder="border-green-500"
+                        outlineColor="text-green-900"
+                        outlineBorder="border-green-900"
                         pillText1="earthy"
                         pillDisplay1="visible"
                         pillText2="tangy"
@@ -91,7 +99,6 @@ function Menu() {
                         pillDisplay3="hidden"
                     />
                 </div>
-            </div>
         </section>
     );
 }

@@ -9,10 +9,11 @@ function Locations() {
 
     return (
         <section
+            id="locations"
             className="
             w-full h-fit
             relative
-            grid
+            scroll-mt-20
             mobile:grid-cols-1 gap-20 py-5
             bg-yellow-100
             "
@@ -28,14 +29,15 @@ function Locations() {
                     text-grey-900
                     "
                 >
-                    Find us at:
+                    Find Us
                 </h1>
                 <h4
                     className="
-                    text-grey-900
+                    text-grey-500
+                    -mt-2 mb-4
                     "
                 >
-                    Our Locations.
+                    Our locations.
                 </h4>
             </hgroup>
                 <div

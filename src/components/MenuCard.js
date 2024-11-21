@@ -30,8 +30,8 @@ function MenuCard({
                 <img className="w-9/12" src={image} alt={imageAlt} />
             </div>
             <article className="flex flex-col items-center gap-4">
-                <p className="text-center">{text}</p>
-                <div className="flex flex-row justify-center gap-4">
+                <p className="text-center text-grey-900">{text}</p>
+                <div className="flex flex-row justify-center flex-wrap gap-4">
                     <Button
                         text="Preorder"
                         color={buttonColor}
@@ -41,10 +41,10 @@ function MenuCard({
                     <Button
                         text="Customize"
                         color={outlineColor}
+                        bg="bg-white"
                         border={outlineBorder}
                     />
                 </div>
-                <a className={`${outlineColor} underline`} href="">Read more</a>
             </article>
         </div>
     );

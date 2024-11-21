@@ -5,7 +5,7 @@ function LocationCard( {image, title, line1, line2} ) {
     return (
         <div
             className="
-            min-w-fit h-full
+            min-w-min
             flex flex-col
             rounded-2xl
             overflow-hidden
@@ -15,8 +15,8 @@ function LocationCard( {image, title, line1, line2} ) {
         >
             <img
                 className="
-                h-full
-                object-cover object-center aspect-video
+                    h-full
+                object-cover object-center
                 "
                 src={image}
             />
@@ -34,7 +34,9 @@ function LocationCard( {image, title, line1, line2} ) {
                     "
                     src={logo}
                 />    
-                <hgroup>
+                <hgroup
+                        className="w-fit"
+                >
                     <h3
                         className="
                         text-xl text-nowrap
@@ -43,14 +45,6 @@ function LocationCard( {image, title, line1, line2} ) {
                     >
                         {title}
                     </h3>
-                    <h4
-                        className="
-                        text-lg
-                        text-yellow-900
-                        "
-                    >
-                        Address:   
-                    </h4>
                     <p
                         className="
                         text-grey-500
@@ -67,8 +61,8 @@ function LocationCard( {image, title, line1, line2} ) {
                     py-3 px-6 
                     rounded-full 
                     text-nowrap
-                    text-yellow-900
-                    border-yellow-900 border-2
+                    text-pink-500
+                    border-pink-500 border-2
                     mt-5
                     self-center
                 ">
