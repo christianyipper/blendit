@@ -4,6 +4,10 @@
 
 /* Define custom styles here. NOTE: this is mainly used for styling global components for reusability. */
 @layer components {
+    html {
+        scroll-behavior: smooth;
+        background-color: #F9D7E780;
+    }
     h1, h2, h3 {
         font-family: 'climate crisis';
     }
@@ -19,6 +23,7 @@
     }
     h4 {
         font-family: 'poppins';
+        font-weight: 600;
         font-size: 1.25rem;
     }
     p, a, button, li, ul, input {

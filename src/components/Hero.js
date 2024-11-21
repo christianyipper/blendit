@@ -104,13 +104,14 @@ function Hero() {
 
     return (
         <section className="
-            w-full min-h-screen grid
+            w-full h-full grid
             grid-cols-4 p-5 gap-20
             relative 
             overflow-hidden
             bg-background
             desktop:grid-cols-12
             desktop:mt-0
+            desktop:min-h-[920px]
         ">
             <svg viewBox="0 0 100 100" className="w-full h-full absolute block desktop:hidden">
                     <circle cx={'140%'} cy={'0%'} r={'100%'} className={`${colorScheme.secondary} transition-colors duration-300`} />
@@ -132,9 +133,9 @@ function Hero() {
                 z-[2]
                 desktop:col-span-6 desktop:gap-8 desktop:justify-center
             ">
-                <h3 className={`transition-colors duration-300 ${colorScheme.text}`}>
+                <h4 className={`transition-colors duration-300 ${colorScheme.text}`}>
                     Top it. Love it.
-                </h3>
+                </h4>
                 <img
                     className="
                         w-full max-w-md 
@@ -158,7 +159,7 @@ function Hero() {
                     `}>
                         Customize
                     </button>
-                    <button className={`
+                    <a className={`
                         w-fit 
                         py-3 px-6 
                         rounded-full 
@@ -167,9 +168,11 @@ function Hero() {
                         ${colorScheme.text}
                         ${colorScheme.text.replace('text', 'border')} 
                         transition-colors duration-300 border-2 
-                    `}>
+                        `}
+                        href="#menu"
+                    >
                         View Menu
-                    </button>
+                    </a>
                 </div>
                 <div className='flex gap-3 justify-center mt-6 desktop:justify-start desktop:mt-0'>
                     {bowls.map((bowl, index) => (
