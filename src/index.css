@@ -28,4 +28,202 @@
     a, button, input {
         pointer-events: all;
     }
+
+    .fruit-drop {
+        animation: fruitdrop 1.5s ease-in-out forwards;
+        transition: 0.5s ease-in-out;
+    }
+    @keyframes fruitdrop {
+        0% {
+            opacity: 0%;
+            transform: translateY(-400%) rotate(145deg);
+        }
+        100% {
+            opacity: 100%;
+            transform: translateY(0%) rotate(0deg);
+        }
+    }
+
+    .fruit-blend-rgb {
+        animation: fruitblendrgb 4s ease-in-out forwards;
+    }
+    @keyframes fruitblendrgb {
+        0% {
+            transform: translateY(105%);
+        }
+        80% {
+            transform: translateY(0%);
+        }
+        100% {
+            transform: translateY(40%);
+        }
+    }
+    .fruit-blend {
+        animation: fruitblend 3.5s 0.5 ease-in-out forwards;
+    }
+    @keyframes fruitblend {
+        0% {
+            transform: translateY(0%);
+        }
+        100% {
+            transform: translateY(350%);
+        }
+    }
+
+    .blender-shake {
+        animation: blendershake 1.5s ease-in-out alternate;
+        animation-iteration-count: 2;
+    }
+    @keyframes blendershake {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        50% {
+            transform: rotateZ(-5deg);
+        }
+        100% {
+            transform: rotateZ(5deg);
+        }
+    }
+    .blender-pour {
+        animation: blenderpour 1s 3s ease-in-out forwards;
+    }
+    @keyframes blenderpour {
+        0% {
+            transform: rotateZ(0deg) translate(0vw, 0vw);
+            opacity: 100%;
+        }
+        50% {
+            opacity: 100%;
+        }
+        75% {
+            transform: rotateZ(-15deg) translate(8vw, 16vw);
+        }
+        100% {
+            transform: rotateZ(-15deg) translate(8vw, 16vw);
+            opacity: 0%;
+        }
+    }
+    .lid-on {
+        animation: lid 3.8s ease-in-out forwards;
+    }
+    @keyframes lid {
+        0% {
+            transform: rotateZ(15deg) translate(-8vw, -20vw);
+            opacity: 0%;
+        }
+        20% {
+            transform: rotateZ(0deg) translate(0, 0);
+            opacity: 100%;
+        }
+        80% {
+            transform: rotateZ(0deg) translate(0, 0);
+            opacity: 100%;
+        }
+        100% {
+            transform: rotateZ(35deg) translate(-8vw, -20vw);
+            opacity: 0%;
+        }
+    }
+    .circle-bg {
+        animation: circlebg 5s ease-in-out forwards;
+        opacity: 100%;
+    }
+    @keyframes circlebg {
+        0% {
+            border-radius: 100%;
+            height: 100vw;
+            background-color: #F9D7E7;
+            opacity: 100%;
+        }
+        75% {
+            transform: scale(1);
+            background-color: #F9D7E7;
+        }
+        100% {
+            transform: scale(0.85);
+            border-radius: 100%;
+            height: 100vw;
+            opacity: 100%;
+        }
+    }
+    .plate {
+        animation: platebg 5s ease-in-out forwards;
+        opacity: 100%;
+    }
+    @keyframes platebg {
+        0% {
+            border-color: transparent;
+            background-color: transparent;
+        }
+        25% {
+            border-color: transparent;
+            background-color: transparent;
+        }
+        75% {
+            transform: scale(1);
+            border-color: #D2D2ED;
+            background-color: #FFF1BE;
+        }
+        100% {
+            transform: scale(0.9);
+            border-color: #D2D2ED;
+            background-color: #FFF1BE;
+        }
+    }
+    .fruit-buttons {
+        animation: fruitbtn 5s ease-in-out forwards;
+        opacity: 0%;
+    }
+    @keyframes fruitbtn {
+        0% {
+            opacity: 0%;
+        }
+        75% {
+            opacity: 0%;
+            transform: translateX(25vw);
+        }
+        100% {
+            transform: translateX(0vw);
+            opacity: 100%;
+        }
+    }
+    .parent:nth-child(1) {
+        transform: translate(-20vw, 20vw) !important;
+    }
+    .parent:nth-child(2) {
+        transform: translate(20vw, 8vw) !important;
+    }
+    .parent:nth-child(n+3) {
+        transform: translate(-8vw, 10vw) !important;
+    }
+
+    .fruit-buttons-item {
+        animation: fruitbtnitem 5s ease-in-out;
+    }
+    @keyframes fruitbtnitem {
+        0% {
+            opacity: 0%;
+        }
+        75% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+    .item-place {
+        animation: itemplace 1.5s ease-in-out forwards;
+        opacity: 0%;
+    }
+    @keyframes itemplace {
+        0% {
+            opacity: 0%;
+            transform: scale(2) rotate(90deg);
+        }
+        100% {
+            opacity: 100%;
+            transform: scale(1) rotate(0deg);
+        }
+    }
 }
