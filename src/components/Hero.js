@@ -164,7 +164,7 @@ function Hero() {
                         py-3 px-6 
                         rounded-full 
                         text-nowrap 
-                        bg-background
+                        bg-white30
                         ${colorScheme.text}
                         ${colorScheme.text.replace('text', 'border')} 
                         transition-colors duration-300 border-2 
