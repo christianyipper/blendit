@@ -48,7 +48,8 @@ function Base({ nextStep, currentStep, updateIngredients, currentIngredients, al
         // this is the reference for the intersection observer
         <div ref={refView}>
             <h1 className="text-pink-500 mt-20">Step {currentStep}</h1>
-            <div className="flex flex-nowrap justify-center relative mt-28 mb-4">
+            <p>Choose three base ingredients.</p>
+            <div className="flex flex-nowrap justify-center relative mt-24 mb-4">
                 <img src={Blender} 
                     alt=""
                     className="w-1/2 z-10"

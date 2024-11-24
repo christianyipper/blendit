@@ -48,7 +48,8 @@ function Toppings({ nextStep, currentStep, previousStep, updateIngredients, allI
     return (
         <div ref={refView}>
             <h1 className="text-pink-500 mt-20">Step {currentStep}</h1>
-            <div className={`flex flex-nowrap justify-center relative mt-28 mb-4`}>
+            <p>Choose up to three toppings.</p>
+            <div className={`flex flex-nowrap justify-center relative mt-24 mb-4`}>
                 <div className="flex flex-nowrap justify-center relative">
                     <div className="flex flex-nowrap justify-center relative">
                         <img src={Blender} 

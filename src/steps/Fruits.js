@@ -55,7 +55,8 @@ function Fruits({ nextStep, currentStep, previousStep, updateIngredients, curren
         // this is the reference for the intersection observer
         <div ref={refView}>
             <h1 className="text-pink-500 mt-20 z-50">Step {currentStep}</h1>
-            <div className={`flex flex-nowrap justify-center relative mt-28 mb-4`}>
+            <p className={ inView ? "fruit-buttons-item" : "" }>Choose up to three fruits.</p>
+            <div className={`flex flex-nowrap justify-center relative mt-24 mb-4`}>
                 <div className={`flex flex-nowrap justify-center relative ${ inView ? "blender-pour" : "" }`}>
                     <div className={`flex flex-nowrap justify-center relative ${ inView ? "blender-shake" : "" }`}>
                         <img src={Blender} 
