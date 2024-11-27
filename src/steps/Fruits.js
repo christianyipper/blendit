@@ -8,32 +8,37 @@ import Blender from "../assets/images/Blender.png";
 import Lid from "../assets/images/Lid.png";
 
 
-function Fruits({ nextStep, currentStep, previousStep, updateIngredients, currentIngredients, allIngredients, baseRGBs }) {
+function Fruits({ nextStep, currentStep, previousStep, updateIngredients, allIngredients, baseRGBs }) {
 
-    // State to track all selected ingredients
+    // state to track all selected ingredients
     const [selectedIngredients, setSelectedIngredients] = useState([]);
+    // when clicked...
     const handleClick = (ingredient) => {
 
-        // Check if the item is already selected
+        // check if the item is already selected
         const isSelected = selectedIngredients.includes(ingredient.name);
 
-        // Allow toggling off the selected item or adding a new one only if less than 3 are selected
+        // if the item is already selected or
+        // if less than 3 ingredients are selected
         if (isSelected || selectedIngredients.length < 3) {
-            // Update the selected ingredients
+            // update the selected ingredients
             updateIngredients(ingredient.image);
 
-            // Manage the baseRGBs array
+            // if the selected item is already in the baseRGBs array, remove it.
             if (baseRGBs.includes(ingredient.rgb)) {
                 baseRGBs.splice(baseRGBs.indexOf(ingredient.rgb), 1);
+            //  otherwise, if the array is less than 3, add it
             } else if (baseRGBs.length < 3) {
                 baseRGBs.push(ingredient.rgb);
             }
 
-            // Toggle the selected ingredient in the array
+            // toggle the selected ingredient in the array
             setSelectedIngredients((prevSelected) =>
                 prevSelected.includes(ingredient.name)
-                ? prevSelected.filter((name) => name !== ingredient.name) // Remove if already selected
-                : [...prevSelected, ingredient.name] // Add if not selected
+                // remove if already selected
+                ? prevSelected.filter((name) => name !== ingredient.name) 
+                // add if not selected
+                : [...prevSelected, ingredient.name]
             );
         }
     };
@@ -55,7 +60,8 @@ function Fruits({ nextStep, currentStep, previousStep, updateIngredients, curren
         // this is the reference for the intersection observer
         <div ref={refView}>
             <h1 className="text-pink-500 mt-20 z-50">Step {currentStep}</h1>
-            <div className={`flex flex-nowrap justify-center relative mt-28 mb-4`}>
+            <p className={ inView ? "fruit-buttons-item" : "" }>Choose up to three fruits.</p>
+            <div className={`flex flex-nowrap justify-center relative mt-24 mb-4`}>
                 <div className={`flex flex-nowrap justify-center relative ${ inView ? "blender-pour" : "" }`}>
                     <div className={`flex flex-nowrap justify-center relative ${ inView ? "blender-shake" : "" }`}>
                         <img src={Blender} 
