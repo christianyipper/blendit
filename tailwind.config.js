@@ -8,7 +8,7 @@ module.exports = {
     theme: {
         screens: {
             desktop: { 'min': '720px' },
-            mobile: { 'max': '520px' },
+            mobile: { 'max': '720px' },
         },
         extend: {
             fontFamily: {

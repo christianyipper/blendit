@@ -11,7 +11,7 @@ function MenuCard({
     pillDisplay1, pillDisplay2, pillDisplay3
 }) {
     return (
-        <div className={`${cardColor} p-4 rounded-2xl w-full h-fit desktop:w-[340px] desktop:max-w-sm`}>
+        <div className={`${cardColor} p-4 rounded-2xl w-full h-fit shadow-sm desktop:w-[340px] desktop:max-w-sm`}>
             <h3 className={headingColor}>{heading}</h3>
             <div className="flex flex-row gap-2">
                 <Pill

@@ -115,7 +115,7 @@ function Builder() {
             bg-grey-100
             w-screen 
             h-[calc(100vh-5rem)] m-auto mt-20
-            max-w-[1920px]
+            max-w-[1920px] overflow-x-hidden
         ">
             <StepWizard
                 isHashEnabled={true}

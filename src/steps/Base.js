@@ -96,7 +96,7 @@ function Base({ nextStep, currentStep, updateIngredients, currentIngredients, ba
                 </div>
                 <div className="
                 w-full h-full rounded-full absolute
-                bg-pink-100 -top-1/4 -z-10
+                bg-pink-100 mt-4 -top-1/4 -z-10
                 desktop:top-[-10%]
                 "
                 />
