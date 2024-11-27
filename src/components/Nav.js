@@ -18,7 +18,7 @@ function Nav() {
             <div className="
             flex flex-row justify-between items-center
             ">
-                <a href="/">
+                <a href="/" className="hover:scale-90 transition-all duration-300">
                     <BlenditSVG
                         color="#D31A74"
                     />
@@ -33,6 +33,7 @@ function Nav() {
                         bg="bg-pink-500"
                         border="border-pink-500"
                         link="builder"
+                        hover="hover:scale-95"
                     />
                 </div>
             </div>

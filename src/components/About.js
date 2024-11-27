@@ -1,5 +1,5 @@
 import AboutCard from "./AboutCard";
-import Button from "./Button";
+import ButtonLink from "./ButtonLink";
 
 function About() {
     return (
@@ -8,16 +8,18 @@ function About() {
             className="
                 bg-grey-100
                 desktop:p-5 
-            "
+                desktop:min-h-[920px]
+                "
         >
             <div 
                 className="
-                p-5 flex flex-col
+                p-5 flex flex-col justify-center
                 w-full h-fit
                 bg-yellow-100
                 relative
                 scroll-mt-20
-                desktop:w-full desktop:h-full
+                desktop:w-full
+                desktop:min-h-[880px] desktop:h-full
                 "
             >
                 <svg 
@@ -101,11 +103,12 @@ function About() {
                         />
                     </div>
                 <div className="flex flex-col items-center my-4 relative z-10">
-                    <Button
+                    <ButtonLink
                         text="Order Now"
                         color="text-white"
                         bg="bg-pink-500"
                         border="border-transparent"
+                        link="builder"
                     />
                 </div>
             </div>

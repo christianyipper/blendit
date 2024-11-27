@@ -11,7 +11,7 @@ function Footer() {
             ">
             <hgroup
                 className="
-                col-span-4
+                col-span-4 z-10
                 "
             >
                 <h2 className="text-pink-500">Blend It.</h2>
@@ -22,7 +22,7 @@ function Footer() {
             <div
                 className="
                 col-span-4
-                desktop:col-start-8 col-span-5
+                desktop:col-start-8 desktop:col-span-5
                 "
             >
                 <h4 className="text-grey-500 mb-4">Get in Touch!</h4>
@@ -70,6 +70,8 @@ function Footer() {
                         className="
                         w-fit bg-pink-500 text-white
                         py-3 px-10 rounded-full z-10
+                        hover:scale-95
+                        transition-all
                         "
                     >
                         Submit
@@ -79,7 +81,7 @@ function Footer() {
             <ul
                 className="
                 flex flex-col gap-5
-                col-span-1
+                col-span-2 z-10
                 desktop:col-span-2
                 ">
                 <li><a href="#">Home</a></li>
@@ -87,32 +89,9 @@ function Footer() {
                 <li><a href="#locations">Locations</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
-            <div
-                className="
-                flex flex-col gap-5 justify-between items-end
-                col-span-3
-                desktop:items-start
-                ">
-                <p 
-                    className="
-                    text-grey-900
-                    font-bold
-                    "
-                >
-                    Order Ahead
-                </p>
-                <button
-                    className="
-                    bg-pink-500
-                    text-white text-nowrap
-                    w-fit py-3 px-6 rounded-full
-                    ">
-                    Blend your Bowl
-                </button>
-            </div>
             <div className="
                 h-full w-full z-10
-                col-start-2 col-span-2
+                col-start-3 col-span-2
                 desktop:col-start-11
                 desktop:grid desktop:place-items-end
             " 

@@ -1,4 +1,5 @@
 import Button from "./Button";
+import ButtonLink from "./ButtonLink";
 import Pill from "./Pill";
 
 function MenuCard({ 
@@ -10,7 +11,7 @@ function MenuCard({
     pillDisplay1, pillDisplay2, pillDisplay3
 }) {
     return (
-        <div className={`${cardColor} p-4 rounded-2xl w-full desktop:w-[340px] desktop:max-w-sm`}>
+        <div className={`${cardColor} p-4 rounded-2xl w-full h-fit desktop:w-[340px] desktop:max-w-sm`}>
             <h3 className={headingColor}>{heading}</h3>
             <div className="flex flex-row gap-2">
                 <Pill
@@ -38,11 +39,12 @@ function MenuCard({
                         bg={buttonBg}
                         border={buttonBorder}
                     />
-                    <Button
+                    <ButtonLink
                         text="Customize"
                         color={outlineColor}
-                        bg="bg-white"
+                        bg="bg-grey-100"
                         border={outlineBorder}
+                        link="/builder"
                     />
                 </div>
             </article>
