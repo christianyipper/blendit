@@ -109,8 +109,8 @@ function Hero() {
             relative 
             overflow-hidden
             bg-background
+            mt-20
             desktop:grid-cols-12
-            desktop:mt-0
             desktop:min-h-[920px]
         ">
             <svg viewBox="0 0 100 100" className="w-full h-full absolute block desktop:hidden">
@@ -129,7 +129,6 @@ function Hero() {
                 col-span-4 
                 flex flex-col gap-4
                 justify-start
-                mt-20
                 z-[2]
                 desktop:col-span-6 desktop:gap-8 desktop:justify-center
             ">

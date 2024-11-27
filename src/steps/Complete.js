@@ -24,37 +24,9 @@ import { useState } from "react";
 import { smoothieData } from "../data/ingredients";
 import { useInView } from "react-intersection-observer";
 
-import Button from "../components/Button";
-import FruitButton from "../components/FruitButton";
 import Blender from "../assets/images/Blender.png";
-import Lid from "../assets/images/Lid.png";
 
-function Complete({ nextStep, currentStep, previousStep, updateIngredients, allIngredients }) {
-
-    // State to track all selected ingredients
-    const [selectedIngredients, setSelectedIngredients] = useState([]);
-    const handleClick = (ingredient) => {
-
-        // Check if the item is already selected
-        const isSelected = selectedIngredients.includes(ingredient.name);
-
-        // Allow toggling off the selected item or adding a new one only if less than 3 are selected
-        if (isSelected || selectedIngredients.length < 3) {
-            // Update the selected ingredients
-            updateIngredients(ingredient.image);
-
-            // Toggle the selected ingredient in the array
-            setSelectedIngredients((prevSelected) =>
-                prevSelected.includes(ingredient.name)
-                ? prevSelected.filter((name) => name !== ingredient.name) // Remove if already selected
-                : [...prevSelected, ingredient.name] // Add if not selected
-            );
-        }
-    };
-
-    // this is a variable that specifies the step
-    // this is how we get the ingredients for the current step 
-    const toppingIngredients = smoothieData.steps.find(step => step.id === 'topping').ingredients;
+function Complete({ allIngredients }) {
 
     let base = allIngredients[0]
     let fruit = allIngredients[1]

@@ -101,12 +101,27 @@ function Builder() {
 
     }
 
+    let custom = {
+        enterRight: 'transform translate(0)',
+        enterLeft : 'transform translate(0)',
+        exitRight : 'transform translate(0)',
+        exitLeft  : 'transform translate(0)',
+        intro     : 'transform translate(0)'
+    }
+
     return (
-        <div className="w-screen overflow-hidden">
+        <div 
+            className="
+            bg-grey-100
+            w-screen overflow-hidden
+            h-[calc(100vh-5rem)] m-auto mt-20
+            max-w-[1920px]
+        ">
             <StepWizard
                 isHashEnabled={true}
+                transitions={custom}
             >
-                {/* Step 1 */}
+                {/* step 1 */}
                 <Base
                     hashKey={"base"}
                     // runs the updateIngredients function when an item is selected
@@ -120,7 +135,7 @@ function Builder() {
                     // used to color the smoothie base
                     baseRGBs={baseRGBs}
                 />
-                {/* Step 2 */}
+                {/* step 2 */}
                 <Fruits
                     hashKey={"fruits"}
                     updateIngredients={(item) => updateIngredients("fruits", item)}
@@ -128,7 +143,7 @@ function Builder() {
                     allIngredients={Object.values(selectedIngredients)}
                     baseRGBs={baseRGBs}
                 />
-                {/* Step 3 */}
+                {/* step 3 */}
                 <Toppings
                     hashKey={"toppings"}
                     updateIngredients={(item) => updateIngredients("toppings", item)} 
@@ -136,7 +151,7 @@ function Builder() {
                     allIngredients={Object.values(selectedIngredients)}
                     baseRGBs={baseRGBs}
                 />
-                {/* Complete */}
+                {/* complete */}
                 <Complete 
                     hashKey={"complete"}
                     allIngredients={Object.values(selectedIngredients)}
