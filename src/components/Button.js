@@ -6,8 +6,9 @@ function Button({ text, color, bg, border, onClick }) {
             rounded-full 
             text-nowrap 
             ${color} ${bg} ${border}
+            hover:scale-95
             border-2
-            transition-colors duration-300
+            transition-all
         `}
         onClick={onClick}
         >{ text }</button>

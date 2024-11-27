@@ -1,11 +1,12 @@
 import logo from '../assets/icons/BlendIt-Icon-Yellow.svg';
+import ButtonLink from './ButtonLink';
 
 function LocationCard( {image, title, line1, line2} ) {
     
     return (
         <div
             className="
-            min-w-min
+            min-w-[45%]
             flex flex-col
             rounded-2xl
             overflow-hidden
@@ -15,7 +16,7 @@ function LocationCard( {image, title, line1, line2} ) {
         >
             <img
                 className="
-                    h-full
+                h-fit
                 object-cover object-center
                 "
                 src={image}
@@ -23,51 +24,61 @@ function LocationCard( {image, title, line1, line2} ) {
             <div
                 className="
                 bg-white
-                w-full
+                w-full h-full
                 p-5 rounded-b-2xl
-                flex flex-col gap-4
+                flex flex-col gap-4 justify-between
                 "
             >
-                <img
+                <div
                     className="
-                    w-24
+                    flex flex-col gap-4
                     "
-                    src={logo}
-                />    
-                <hgroup
-                        className="w-fit"
                 >
-                    <h3
+                    <img
                         className="
-                        text-xl text-nowrap
-                        text-pink-900
+                        w-24
                         "
+                        src={logo}
+                    />    
+                    <hgroup
+                            className="w-fit"
                     >
-                        {title}
-                    </h3>
-                    <p
-                        className="
-                        text-grey-500
-                        "
-                    >
-                        {line1}
-                        <br></br>
-                        {line2}
-                    </p>
-                </hgroup>
-                <button
+                        <h3
+                            className="
+                            text-xl
+                            text-pink-900
+                            "
+                        >
+                            {title}
+                        </h3>
+                        <p
+                            className="
+                            text-grey-500
+                            "
+                        >
+                            {line1}
+                            <br></br>
+                            {line2}
+                        </p>
+                    </hgroup>
+                </div>
+                <ButtonLink
                     className="
                     w-fit 
                     py-3 px-6 
                     rounded-full 
                     text-nowrap
-                    text-pink-500
-                    border-pink-500 border-2
                     mt-5
                     self-center
-                ">
-                    Order Here
-                </button>
+                    hover:scale-95
+                    transition-all
+                "
+                    text="Order Ahead"
+                    color="text-pink-500"
+                    bg="bg-white"
+                    border="border-pink-500"
+                    link="/builder"
+                />
             </div>
         </div>
     )

@@ -89,10 +89,10 @@ function Hero() {
     
     // Color schemes for different bowls
     const colorSchemes = [
-        { primary: 'bg-pink-500', secondary: 'fill-pink-100', text: 'text-pink-900', circle: 'fill-pink-500' },
-        { primary: 'bg-yellow-500', secondary: 'fill-yellow-100', text: 'text-yellow-900', circle: 'fill-yellow-500' },
-        { primary: 'bg-green-500', secondary: 'fill-green-100', text: 'text-green-900', circle: 'fill-green-500' },
-        { primary: 'bg-blue-500', secondary: 'fill-blue-100', text: 'text-blue-900', circle: 'fill-blue-500' },
+        { primary: 'bg-pink-900', secondary: 'fill-pink-100', text: 'text-pink-900', circle: 'fill-pink-500' },
+        { primary: 'bg-yellow-900', secondary: 'fill-yellow-100', text: 'text-yellow-900', circle: 'fill-yellow-500' },
+        { primary: 'bg-green-900', secondary: 'fill-green-100', text: 'text-green-900', circle: 'fill-green-500' },
+        { primary: 'bg-blue-900', secondary: 'fill-blue-100', text: 'text-blue-900', circle: 'fill-blue-500' },
     ];
 
     const [colorScheme, setColorScheme] = useState(colorSchemes[0]);
@@ -148,27 +148,32 @@ function Hero() {
                     Welcome to Blend It, where healthy eating is effortless and fun! Order fresh nutritious smoothie bowls with uniquely interactive and customizable ordering experience. We put the power of choice in your own hands!
                 </p>
                 <div className="flex gap-5 justify-center desktop:justify-start">
-                    <button className={`
+                    <a className={`
                         w-fit 
                         py-3 px-6 
                         text-white 
                         rounded-full 
                         text-nowrap 
                         ${colorScheme.primary}
-                        transition-colors duration-300
-                    `}>
+                        ${colorScheme.text.replace('text', 'border')} border-2
+                        hover:scale-95
+                        transition-all
+                    `}
+                        href="/builder"
+                    >
                         Customize
-                    </button>
+                    </a>
                     <a className={`
                         w-fit 
                         py-3 px-6 
                         rounded-full 
                         text-nowrap 
-                        bg-white30
+                        bg-white border-2
                         ${colorScheme.text}
                         ${colorScheme.text.replace('text', 'border')} 
-                        transition-colors duration-300 border-2 
-                        `}
+                        hover:scale-95
+                        transition-all  
+                    `}
                         href="#menu"
                     >
                         View Menu
@@ -180,7 +185,7 @@ function Hero() {
                             key={index}
                             src={bowl}
                             alt={`Smoothie Bowl ${index + 1}`}
-                            className="size-20 cursor-pointer rounded-full shadow-md desktop:size-24"
+                            className="size-20 cursor-pointer rounded-full shadow-md desktop:size-24 hover:scale-95 transition-all"
                             onClick={() => setSelectedBowl(index)}
                         />
                     ))}
