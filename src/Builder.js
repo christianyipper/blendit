@@ -113,13 +113,13 @@ function Builder() {
         <div 
             className="
             bg-grey-100
-            w-screen overflow-hidden
+            w-screen 
             h-[calc(100vh-5rem)] m-auto mt-20
             max-w-[1920px]
         ">
             <StepWizard
                 isHashEnabled={true}
-                transitions={custom}
+                
             >
                 {/* step 1 */}
                 <Base
