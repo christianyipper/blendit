@@ -35,7 +35,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 {/* We can also put components here which will be loaded globally. This means "Nav" will load on the page no matter which route is active */}
                 <Nav/>
                 <RouterProvider router={router} />
-                <Footer/>
             </>
         </HelmetProvider>
     </React.StrictMode>

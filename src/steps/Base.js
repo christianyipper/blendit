@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { smoothieData, getBaseRGB } from "../data/ingredients";
+import { useInView } from "react-intersection-observer";
+
 import Button from "../components/Button";
 import FruitButton from "../components/FruitButton";
-import { smoothieData, getBaseRGB } from "../data/ingredients";
+import Blender from "../assets/images/Blender.png";
 
-function Base({ nextStep, currentStep, updateIngredients, allIngredients, baseRGBs }) {
+function Base({ nextStep, currentStep, updateIngredients, currentIngredients, allIngredients, baseRGBs }) {
 
     // State to track all selected ingredients
     const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -36,11 +39,47 @@ function Base({ nextStep, currentStep, updateIngredients, allIngredients, baseRG
     // this is a variable that specifies the step
     // this is how we get the ingredients for the current step 
     const baseIngredients = smoothieData.steps.find(step => step.id === 'base').ingredients;
+
+    // this is intersection observer
+    // it declares a reference and view value
+    const { ref: refView, inView: inView } = useInView( { threshold: 0.5 } );
     
     return (
-        <div>
-            <h1 className="text-pink-500 mt-24">Step {currentStep}</h1>
-            
+        // this is the reference for the intersection observer
+        <div ref={refView}>
+            <h1 className="text-pink-500 mt-20">Step {currentStep}</h1>
+            <p>Choose three base ingredients.</p>
+            <div className="flex flex-nowrap justify-center relative mt-24 mb-4">
+                <img src={Blender} 
+                    alt=""
+                    className="w-1/2 z-10"
+                />
+                <div className="flex flex-wrap flex-col-reverse absolute bottom-[33vw] left-[36vw]">
+                    <div className="flex flex-wrap flex-col-reverse absolute fruit-container">
+                        {currentIngredients.length > 0
+                        ?
+                        currentIngredients.map((item) => (
+                            // when this element intersects the reference, it will add the fruit-drop class. If not, it will remove that class
+                            <div className={ `${ inView ? "fruit-drop" : "" }` }>
+                                <img  src={item} className="relative -my-4"/>
+                            </div>
+                        ))
+                            : <p></p> }
+                        <div className="rounded-full w-24 h-24"/>
+                    </div>
+                </div>
+                <div className="w-full aspect-square rounded-full absolute bg-pink-100 -top-1/3 -z-10"/>
+            </div>
+            <div className="gap-2 px-4 flex flex-row justify-between -mt-14 mb-4 z-[100] relative">
+                <div/>
+                <Button 
+                    text="Next"
+                    color="text-white"
+                    bg="bg-pink-500"
+                    border="border-pink-500"
+                    onClick={nextStep}
+                />
+            </div>
             <div className="
                 flex flex-row flex-nowrap gap-4 px-4 relative
                 overflow-x-scroll
@@ -62,31 +101,22 @@ function Base({ nextStep, currentStep, updateIngredients, allIngredients, baseRG
                     />
                 ))}
             </div>
-            <div className="gap-2 px-4 flex flex-row">
-                <Button 
-                    text="Next"
-                    color="text-white"
-                    bg="bg-pink-500"
-                    border="border-pink-500"
-                    onClick={nextStep}
-                />
-            </div>
                 {/* <p className="text-grey-500">
                     Current Order:
                 </p>
                 <div className="flex flex-row flex-wrap gap-4">
-                    {selectedIngredients.length > 0
+                    {currentIngredients.length > 0
                     ?
-                        selectedIngredients.map((item) => (
-                        <img width="100px" src={item}></img>
+                        currentIngredients.map((item) => (
+                        <img width="100px" src={item}/>
                     ))
                         : <p>No items selected</p> }
                     <div 
                         className="smoothie-base rounded-full w-24 h-24"
                     >
                     </div>
-                </div> */}
-                {/* <p className="text-grey-900 font-bold">
+                </div>
+                <p className="text-grey-900 font-bold">
                     Full Order:
                 </p>
                 <div className="flex flex-row flex-wrap gap-4">
