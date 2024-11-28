@@ -50,8 +50,8 @@ function Base({ nextStep, currentStep, updateIngredients, currentIngredients, ba
     const { ref: refView, inView: inView } = useInView( { threshold: 0.5 } );
     
     return (
-        // this is the reference for the intersection observer
         <div 
+            // this is the reference for the intersection observer
             ref={refView}
             className="
             w-full grid relative
@@ -74,9 +74,9 @@ function Base({ nextStep, currentStep, updateIngredients, currentIngredients, ba
                     "
                 />
                 <div className="
-                flex flex-wrap flex-col-reverse
-                absolute bottom-[40%] left-[38%]
-                desktop:bottom-[28%] desktop:left-[42%]
+                flex flex-wrap flex-col-reverse absolute 
+                w-[75%] h-[60%] bottom-[38%] left-[33%]
+                desktop:w-auto desktop:h-auto desktop:bottom-[28%] desktop:left-[42%]
                 ">
                     <div className="flex flex-wrap flex-col-reverse absolute fruit-container">
                         {currentIngredients.length > 0
@@ -84,8 +84,8 @@ function Base({ nextStep, currentStep, updateIngredients, currentIngredients, ba
                         currentIngredients.map((item) => (
                             // when this element intersects the reference, it will add the fruit-drop class. If not, it will remove that class
                             <div className={ `${ inView ? "fruit-drop" : "" }` }>
-                                <img  src={item} className="
-                                relative -my-4 w-3/4
+                                <img width="100vw" src={item} className="
+                                relative -my-4
                                 desktop:w-full
                                 "/>
                             </div>
@@ -96,7 +96,7 @@ function Base({ nextStep, currentStep, updateIngredients, currentIngredients, ba
                 </div>
                 <div className="
                 w-full h-full rounded-full absolute
-                bg-pink-100 -top-1/4 -z-10
+                bg-pink-100 mt-4 -top-1/4 -z-10
                 desktop:top-[-10%]
                 "
                 />
@@ -145,10 +145,10 @@ function Base({ nextStep, currentStep, updateIngredients, currentIngredients, ba
                                 // set the button's text to the ingredient's name
                                 text={ingredient.name}
                                 color="text-grey-900"
-                                border={
+                                selected={
                                         selectedIngredients.includes(ingredient.name)
-                                        ? "border-yellow-500"
-                                        : "border-yellow-100"
+                                        ? "scale-90 even:rotate-6 odd:-rotate-3 opacity-50"
+                                        : "scale-100"
                                 }
                                 link={ingredient.image}
                                 onClick={() => handleClick(ingredient)}

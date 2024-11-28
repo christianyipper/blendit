@@ -113,9 +113,9 @@ function Builder() {
         <div 
             className="
             bg-grey-100
-            w-screen 
-            h-[calc(100vh-5rem)] m-auto mt-20
-            max-w-[1920px]
+            w-screen h-fit
+            m-auto mt-20
+            max-w-[1920px] overflow-hidden
         ">
             <StepWizard
                 isHashEnabled={true}

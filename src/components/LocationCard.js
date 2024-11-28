@@ -6,12 +6,13 @@ function LocationCard( {image, title, line1, line2} ) {
     return (
         <div
             className="
-            min-w-[45%]
+            min-w-min
             flex flex-col
-            rounded-2xl
+            rounded-2xl shadow-sm
             overflow-hidden
             first:ml-5
             last:mr-5
+            desktop:min-w-[45%]
             "
         >
             <img

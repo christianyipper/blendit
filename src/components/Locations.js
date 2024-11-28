@@ -52,7 +52,7 @@ function Locations() {
                         className="
                         flex flex-row
                         overflow-x-scroll scroll-smooth scrollbar-none
-                        w-full gap-4
+                        w-full gap-4 pb-4
                         "
                     >
                         <LocationCard

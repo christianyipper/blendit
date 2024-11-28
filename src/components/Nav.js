@@ -13,7 +13,7 @@ function Nav() {
         <nav className="
         w-full max-w-[1920px] p-4 top-0 mt-0
         fixed z-50 left-1/2 -translate-x-1/2
-        bg-grey-100
+        bg-grey-100 shadow-md
         ">
             <div className="
             flex flex-row justify-between items-center

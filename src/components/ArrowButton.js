@@ -9,7 +9,7 @@ function ArrowButton({ onClick, rotation, grid }) {
         w-12 h-12 aspect-square 
         grid place-items-center
         ${rotation}
-        hover:scale-90
+        hover:scale-95
         transition-all
         `}
         onClick={onClick}
