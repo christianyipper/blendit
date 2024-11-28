@@ -90,7 +90,9 @@ function Fruits({ nextStep, currentStep, previousStep, updateIngredients, allIng
                             className={`h-full w-full z-10 absolute -top-7 rotate-[15deg] opacity-0  desktop:top-32
                             ${ inView ? "lid-on" : "" }`}
                         />
-                        <div className="flex flex-wrap flex-col-reverse w-[60%] absolute bottom-[33%] left-[14%] desktop:bottom-[26%] desktop:left-[32%]">
+                        <div className="flex flex-wrap flex-col-reverse absolute bg-black
+                            w-[75%] h-[50%] bottom-[38%] left-[33%]
+                            desktop:w-[60%] desktop:bottom-[26%] desktop:left-[32%]">
                             <div className="flex flex-wrap flex-col-reverse absolute overflow-hidden">
                                 {baseItems.length > 0
                                 ?
@@ -102,7 +104,7 @@ function Fruits({ nextStep, currentStep, previousStep, updateIngredients, allIng
                                     : <p></p> }
                                     <div className="rounded-full w-24 h-24"></div>
                             </div>
-                            <div className="w-full h-[20vh] relative translate-x-[-30%] overflow-hidden">
+                            <div className="w-full h-[100%] relative translate-x-[-30%] overflow-hidden">
                                 <div className={`smoothie-base w-full h-full translate-y-[110%] z-40 ${ inView ? "fruit-blend-rgb" : "" }`}/>
                             </div>
                         </div>
