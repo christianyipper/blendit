@@ -76,7 +76,7 @@ function Base({ nextStep, currentStep, updateIngredients, currentIngredients, ba
                 <div className="
                 flex flex-wrap flex-col-reverse absolute 
                 w-[75%] h-[60%] bottom-[38%] left-[33%]
-                desktop:bottom-[28%] desktop:left-[42%]
+                desktop:w-auto desktop:h-auto desktop:bottom-[28%] desktop:left-[42%]
                 ">
                     <div className="flex flex-wrap flex-col-reverse absolute fruit-container">
                         {currentIngredients.length > 0
