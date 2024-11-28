@@ -76,6 +76,7 @@
     }
 
     .blender-shake {
+        scale: 0.8;
         animation: blendershake 1.5s ease-in-out alternate;
         animation-iteration-count: 2;
     }
@@ -132,23 +133,32 @@
     }
     .circle-bg {
         animation: circlebg 5s ease-in-out forwards;
+        margin-bottom: 2rem;
         opacity: 100%;
     }
     @keyframes circlebg {
         0% {
             border-radius: 100%;
-            height: 100vw;
+            width: 100%;
+            height: 100%;
             background-color: #F9D7E7;
             opacity: 100%;
-        }
-        75% {
             transform: scale(1);
+        }
+        60% {
+            opacity: 100%;
+            transform: scale(1);
+        }
+        80% {
+            opacity: 0%;
+            transform: scale(3);
             background-color: #F9D7E7;
         }
         100% {
-            transform: scale(0.85);
+            transform: scale(0.95);
             border-radius: 100%;
-            height: 100vw;
+            width: 100%;
+            height: 100%;
             opacity: 100%;
         }
     }
@@ -167,8 +177,6 @@
         }
         75% {
             transform: scale(1);
-            border-color: #D2D2ED;
-            background-color: #FFF1BE;
         }
         100% {
             transform: scale(0.9);
@@ -194,13 +202,13 @@
         }
     }
     .parent:nth-child(1) {
-        transform: translate(-20vw, 20vw) !important;
+        transform: rotate(0deg) !important;
     }
     .parent:nth-child(2) {
-        transform: translate(20vw, 8vw) !important;
+        transform: rotate(90deg) !important;
     }
     .parent:nth-child(n+3) {
-        transform: translate(-8vw, 10vw) !important;
+        transform: rotate(180deg) !important;
     }
 
     .fruit-buttons-item {
