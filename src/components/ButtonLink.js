@@ -1,6 +1,6 @@
-function Button({ text, color, bg, border, onClick }) {
+function ButtonLink({ text, color, bg, border, link }) {
     return (
-        <button className={`
+        <a className={`
             w-fit 
             py-3 px-6 
             rounded-full 
@@ -10,9 +10,9 @@ function Button({ text, color, bg, border, onClick }) {
             border-2
             transition-all
         `}
-        onClick={onClick}
-        >{ text }</button>
+        href={ link }
+        >{ text }</a>
     );
 }
 
-export default Button;
+export default ButtonLink;

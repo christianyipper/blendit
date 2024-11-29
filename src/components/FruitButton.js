@@ -1,19 +1,24 @@
-function FruitButton({ text, color, bg, onClick, link, desc }) {
+function FruitButton({ text, color, selected, onClick, link, desc }) {
     return (
         <button className={`
-            w-32 relative flex flex-col justify-center items-center
-            py-3 px-3 
-            rounded-lg 
-            text-nowrap 
-            ${color} ${bg}
-            transition-colors duration-300
+        w-36 h-48 px-3 py-3 aspect-[91/116]
+        relative grid grid-cols-1 place-items-center justify-evenly 
+        rounded-lg 
+        text-nowrap rotate-
+        ${color} bg-yellow-100
+        transition-all duration-300
+        ${selected}
+        desktop:w-[calc(33%-0.75rem)] desktop:h-auto
         `}
         onClick={onClick}
         >
             <img src={link} alt={desc}
-            className="w-24 my-3"
+                className="
+                aspect-square
+                w-24
+                desktop:w-1/2"
             />
-            <p className="text-center bold">{text}</p>
+            <p className="text-center text-wrap font-bold">{text}</p>
         </button>
     );
 }

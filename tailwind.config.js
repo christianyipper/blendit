@@ -8,7 +8,7 @@ module.exports = {
     theme: {
         screens: {
             desktop: { 'min': '720px' },
-            mobile: { 'max': '520px' },
+            mobile: { 'max': '720px' },
         },
         extend: {
             fontFamily: {
@@ -45,6 +45,7 @@ module.exports = {
             white: '#ffffff',
             black: '#000000',
             background: '#FFFDF5',
+            white30: 'rgba(255, 255, 255, 0.30)',
             pink: {
                 100: '#F9D7E7',
                 500: '#D31A74',
