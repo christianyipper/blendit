@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import heroLogo from '../assets/hero/hero-logo.svg';
 import bowlPink from '../assets/hero/bowl-pink.png';
 import bowlYellow from '../assets/hero/bowl-yellow.png';
 import bowlBlue from '../assets/hero/bowl-blue.png';
 import bowlGreen from '../assets/hero/bowl-green.png';
+
+import { useIntersectionAnimation } from './Observer';
 
 const SpinningBowlSelector = ({ selectedBowl, bowls, circleColor }) => {
     // Calculate the angle of each bowl in the circle
@@ -39,6 +42,7 @@ const SpinningBowlSelector = ({ selectedBowl, bowls, circleColor }) => {
             {/* Render the bowls */}
             <div 
                 className="
+                    animate-simpleFade animation-delay-900 opacity-0
                     w-full h-full 
                     transition-transform duration-500 ease-in-out z-10"
                 style={{ transform: `rotate(${-selectedBowl * angle}deg)` }}
@@ -83,6 +87,11 @@ const SpinningBowlSelector = ({ selectedBowl, bowls, circleColor }) => {
 };
 
 function Hero() {
+    const animation = useIntersectionAnimation();
+    const animationDelay1 = useIntersectionAnimation('animate-fade', 100);
+    const animationDelay2 = useIntersectionAnimation('animate-fade', 200);
+    const animationDelay3 = useIntersectionAnimation('animate-fade', 300);
+
     // State variables for selected bowl and color scheme
     const [selectedBowl, setSelectedBowl] = useState(0);
     const bowls = [bowlPink, bowlYellow, bowlGreen, bowlBlue];
@@ -104,6 +113,7 @@ function Hero() {
 
     return (
         <section className="
+            animate-simpleFade
             w-full h-full grid
             grid-cols-4 p-5 gap-20
             relative 
@@ -113,16 +123,16 @@ function Hero() {
             desktop:grid-cols-12
             desktop:min-h-[920px]
         ">
-            <svg viewBox="0 0 100 100" className="w-full h-full absolute block desktop:hidden">
+            <svg viewBox="0 0 100 100" className="animate-fade w-full h-full absolute block desktop:hidden">
                     <circle cx={'140%'} cy={'0%'} r={'100%'} className={`${colorScheme.secondary} transition-colors duration-300`} />
             </svg>
 
-            <svg viewBox="0 0 50 50" className="w-full h-full absolute hidden mix-blend-multiply desktop:block">
+            <svg viewBox="0 0 50 50" className=" w-full h-full absolute hidden mix-blend-multiply opacity-0 animate-simpleFade animation-delay-400 desktop:block">
                     <circle cx={'-30%'} cy={'50%'} r={'70%'} className={`${colorScheme.secondary} transition-colors duration-300`} />
             </svg>
 
-            <svg viewBox="0 0 50 50" className="w-full h-full absolute hidden mix-blend-multiply desktop:block opacity-60">
-                    <circle cx={'35%'} cy={'100%'} r={'40%'} className={`${colorScheme.circle} transition-colors duration-300`} />
+            <svg viewBox="0 0 50 50" className="w-full h-full absolute hidden mix-blend-multiply opacity-0 animate-simpleFade animation-delay-600 desktop:block">
+                    <circle cx={'35%'} cy={'100%'} r={'40%'} className={`${colorScheme.circle} transition-colors duration-300 opacity-60`} />
             </svg>
 
             <div className="
@@ -132,21 +142,24 @@ function Hero() {
                 z-[2]
                 desktop:col-span-6 desktop:gap-8 desktop:justify-center
             ">
-                <h4 className={`transition-colors duration-300 ${colorScheme.text}`}>
+                <h4 ref={animationDelay1.ref} className={` transition-colors duration-300 ${colorScheme.text} ${animationDelay1.visibilityClass}`}>
                     Top it. Love it.
                 </h4>
                 <img
-                    className="
+                    ref={animationDelay2.ref}
+                    className={`
+                        ${animationDelay2.visibilityClass}
                         w-full max-w-md 
-                        transition-filter duration-300"
+                        transition-filter duration-300
+                        `}
                         src={heroLogo}
                         alt="Blend It."
                         style={{ filter: `hue-rotate(${selectedBowl * 90}deg)` }}
                 />
-                <p className='text-grey-900 desktop:w-5/6'>
+                <p className='animate-fade text-grey-900 desktop:w-5/6'>
                     Welcome to Blend It, where healthy eating is effortless and fun! Order fresh nutritious smoothie bowls with uniquely interactive and customizable ordering experience. We put the power of choice in your own hands!
                 </p>
-                <div className="flex gap-5 justify-center desktop:justify-start">
+                <div  ref={animationDelay1.ref} className={`${animationDelay1.visibilityClass} flex gap-5 justify-center desktop:justify-start`}>
                     <a className={`
                         w-fit 
                         py-3 px-6 
@@ -178,13 +191,13 @@ function Hero() {
                         View Menu
                     </a>
                 </div>
-                <div className='flex gap-3 justify-center mt-6 desktop:justify-start desktop:mt-0'>
+                <div ref={animationDelay2.ref} className={`${animationDelay2.visibilityClass} opacity-0 flex gap-3 justify-center mt-6 desktop:justify-start desktop:mt-0`}>
                     {bowls.map((bowl, index) => (
                         <img
                             key={index}
                             src={bowl}
                             alt={`Smoothie Bowl ${index + 1}`}
-                            className="size-20 cursor-pointer rounded-full shadow-md desktop:size-24 hover:scale-95 transition-all"
+                            className={`size-20 cursor-pointer rounded-full shadow-md desktop:size-24 hover:scale-95 transition-scale duration-300`} 
                             onClick={() => setSelectedBowl(index)}
                         />
                     ))}
@@ -192,6 +205,7 @@ function Hero() {
             </div>
 
             <section className="
+                opacity-0 animate-simpleFade animation-delay-300
                 col-span-4 
                 flex align-end 
                 mt-80

@@ -239,4 +239,13 @@
             transform: scale(1) rotate(0deg);
         }
     }
+
+    @keyframes simpleFade {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
 }
