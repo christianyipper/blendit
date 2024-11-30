@@ -131,7 +131,7 @@ export const smoothieData = {
                 },
                 { 
                     id: 'kiwi', 
-                    name: 'Kiwi', 
+                    name: 'Kiwi Slices', 
                     image: KiwiImage,
                     layoutImage: KiwiLayoutImage
                 },

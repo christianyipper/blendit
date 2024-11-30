@@ -8,7 +8,7 @@ module.exports = {
     theme: {
         screens: {
             desktop: { 'min': '720px' },
-            mobile: { 'max': '520px' },
+            mobile: { 'max': '720px' },
         },
         extend: {
             fontFamily: {
@@ -21,6 +21,7 @@ module.exports = {
                 shake: 'shake 1s ease-in-out infinite alternate',
                 spin: 'spin 0.5s ease-in-out alternate',
                 fade: 'fade 1s cubic-bezier( 0.175, 0.885, 0.32, 1.5 ) forwards',
+                simpleFade: 'simpleFade 0.5s ease-in forwards',
             },
             keyframes: {
                 // Create keyframe animations here.
@@ -35,7 +36,7 @@ module.exports = {
                     '100%': { transform: 'rotateY( 0deg )' },
                 },
                 fade: {
-                    '0%': { transform: 'translateY( 125% )', opacity: '0' },
+                    '0%': { transform: 'translateY( 100px )', opacity: '0' },
                     '100%': { transform: 'translateY( 0 )', opacity: '100%' },
                 },
             },

@@ -5,7 +5,13 @@ import location1 from "../assets/locations/location1.jpeg";
 import location2 from "../assets/locations/location2.jpeg";
 import location3 from "../assets/locations/location3.jpeg";
 
+import { useIntersectionAnimation } from './Observer';
+
 function Locations() {
+    const animation = useIntersectionAnimation();
+    const animationDelay1 = useIntersectionAnimation('animate-fade', 100);
+    const animationDelay2 = useIntersectionAnimation('animate-fade', 200);
+    const animationDelay3 = useIntersectionAnimation('animate-fade', 300);
 
     return (
         <section
@@ -27,10 +33,12 @@ function Locations() {
                 "
             >
                 <hgroup
-                    className="
+                    ref={animation.ref}
+                    className={`
+                    ${animation.visibilityClass}
                     px-5
                     mobile:col-span-1
-                    "
+                    `}
                 >
                     <h1
                         className="
@@ -49,11 +57,13 @@ function Locations() {
                     </h4>
                 </hgroup>
                     <div
-                        className="
-                        flex flex-row
-                        overflow-x-scroll scroll-smooth scrollbar-none
-                        w-full gap-4
-                        "
+                        ref={animationDelay1.ref}
+                        className={`
+                            ${animationDelay1.visibilityClass}
+                            flex flex-row
+                            overflow-x-scroll scroll-smooth scrollbar-none
+                            w-full gap-4 pb-4
+                        `}
                     >
                         <LocationCard
                             image={location1}

@@ -1,6 +1,12 @@
 import logo from '../assets/icons/BlendIt-Full.svg'
+import { useIntersectionAnimation } from './Observer';
 
 function Footer() {
+    const animation = useIntersectionAnimation();
+    const animationDelay1 = useIntersectionAnimation('animate-fade', 100);
+    const animationDelay2 = useIntersectionAnimation('animate-fade', 200);
+    const animationDelay3 = useIntersectionAnimation('animate-fade', 300);
+
     return (
         <section className="
             bg-grey-100
@@ -14,9 +20,9 @@ function Footer() {
                 col-span-4 z-10
                 "
             >
-                <h2 className="text-pink-500">Blend It.</h2>
-                <h2 className="text-pink-900">Top It.</h2>
-                <h2 className="text-pink-900">Love It.</h2>
+                <h2 ref={animation.ref} className={`text-pink-500 ${animation.visibilityClass}`}>Blend It.</h2>
+                <h2 ref={animationDelay1.ref} className={`text-pink-900 ${animationDelay1.visibilityClass}`}>Top It.</h2>
+                <h2 ref={animationDelay2.ref} className={`text-pink-900 ${animationDelay2.visibilityClass}`}>Love It.</h2>
                 <a className="text-grey-500" href="mailto:hello@blendit.com">hello@blendit.com</a>
             </hgroup>
             <div
@@ -25,54 +31,66 @@ function Footer() {
                 desktop:col-start-8 desktop:col-span-5
                 "
             >
-                <h4 className="text-grey-500 mb-4">Get in Touch!</h4>
+                <h4 className={` text-grey-500 mb-4`}>Get in Touch!</h4>
                 <form className="
                     flex flex-col gap-4 items-center
                     desktop:items-end
                     "
                 >
                     <input
-                        className="
-                        border-[1px] border-pink-500
-                        p-5 rounded-xl w-full z-10
-                        "
+                        ref={animation.ref}
+                        className={`
+                            ${animation.visibilityClass}
+                            border-[1px] border-pink-500
+                            p-5 rounded-xl w-full z-10
+                        `}
                         required="required"
                         type="text"
                         placeholder="Name"
                     />
                     <input 
-                        className="
-                        border-[1px] border-pink-500
-                        p-5 rounded-xl w-full z-10
-                        "
+                        ref={animationDelay1.ref}
+                        className={`
+                            ${animationDelay1.visibilityClass}
+                            border-[1px] border-pink-500
+                            p-5 rounded-xl w-full z-10
+                        `}
                         required="required"
                         type="phone"
                         placeholder="Phone Number"
                     />
                     <input
-                        className="
-                        border-[1px] border-pink-500
-                        p-5 rounded-xl w-full z-10
-                        "
+                        ref={animationDelay2.ref}
+                        className={`
+                            ${animationDelay2.visibilityClass}
+                            border-[1px] border-pink-500
+                            p-5 rounded-xl w-full z-10
+                        `}
                         required="required"
                         type="email"
                         placeholder="Email Address"
                     />
                     <textarea
-                        className="
-                        border-[1px] border-pink-500
-                        p-5 rounded-xl w-full z-10
-                        "
+                        ref={animationDelay3.ref}
+                        className={`
+                            ${animationDelay3.visibilityClass}
+                            border-[1px] border-pink-500
+                            p-5 rounded-xl w-full z-10
+                            opacity-0
+                        `}
                         required="required"
                         placeholder="Your Message"
                     />
                     <button
-                        className="
-                        w-fit bg-pink-500 text-white
-                        py-3 px-10 rounded-full z-10
-                        hover:scale-95
-                        transition-all
-                        "
+                        ref={animationDelay1.ref}
+                        className={`
+                            ${animationDelay1.visibilityClass}
+                            w-fit bg-pink-500 text-white
+                            py-3 px-10 rounded-full z-10
+                            hover:scale-95
+                            transition-all
+                            opacity-0
+                        `}
                     >
                         Submit
                     </button>

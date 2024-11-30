@@ -1,11 +1,19 @@
 import AboutCard from "./AboutCard";
 import ButtonLink from "./ButtonLink";
+import { useIntersectionAnimation } from './Observer';
 
 function About() {
+    const animation = useIntersectionAnimation();
+    const animationDelay1 = useIntersectionAnimation('animate-fade', 100);
+    const animationDelay2 = useIntersectionAnimation('animate-fade', 200);
+    const animationDelay3 = useIntersectionAnimation('animate-fade', 300);
+
     return (
         <section
             id="about"
             className="
+                animate-simpleFade animation-delay-300
+                opacity-0
                 bg-grey-100
                 desktop:p-5 
                 desktop:min-h-[920px]
@@ -74,7 +82,7 @@ function About() {
                         cy={'90%'}
                     />
                 </svg>
-                <hgroup>
+                <hgroup ref={animation.ref} className={animation.visibilityClass}>
                     <h2 className=
                         "text-grey-900"
                     >About Us</h2>
@@ -85,6 +93,7 @@ function About() {
                         Blend it.
                     </h4>
                 </hgroup>
+                <div ref={animationDelay1.ref} className={animationDelay1.visibilityClass}>
                     <div className="
                         flex flex-col gap-4
                         desktop:flex-row
@@ -102,14 +111,17 @@ function About() {
                             text="We are on a mission to revolutionize the traditional online ordering experience. At Blend It, we believe that healthy eating should not only be effortless but also enjoyable. That's why we’ve created a fully interactive and customizable ordering system that empowers you to be the architect of your perfect smoothie bowl.."
                         />
                     </div>
-                <div className="flex flex-col items-center my-4 relative z-10">
-                    <ButtonLink
-                        text="Order Now"
-                        color="text-white"
-                        bg="bg-pink-500"
-                        border="border-transparent"
-                        link="builder"
-                    />
+                </div>
+                <div className="flex flex-col items-center my-4 mt-8 relative z-10">
+                    <div ref={animationDelay2.ref} className={`opacity-0 ${animationDelay2.visibilityClass}`}>
+                        <ButtonLink
+                            text="Order Now"
+                            color="text-white"
+                            bg="bg-pink-500"
+                            border="border-transparent"
+                            link="builder"
+                        />
+                    </div>
                 </div>
             </div>
         </section>

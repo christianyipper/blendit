@@ -9,23 +9,27 @@ import Lid from "../assets/images/Lid.png";
 
 function Toppings({ nextStep, currentStep, previousStep, updateIngredients, allIngredients }) {
 
-    // State to track all selected ingredients
+    // state to track all selected ingredients
     const [selectedIngredients, setSelectedIngredients] = useState([]);
+    // when clicked...
     const handleClick = (ingredient) => {
 
-        // Check if the item is already selected
+        // check if the item is already selected
         const isSelected = selectedIngredients.includes(ingredient.name);
 
-        // Allow toggling off the selected item or adding a new one only if less than 3 are selected
+        // if the item is already selected or
+        // if less than 3 ingredients are selected
         if (isSelected || selectedIngredients.length < 3) {
-            // Update the selected ingredients
+            // update the selected ingredients
             updateIngredients(ingredient.image);
 
-            // Toggle the selected ingredient in the array
+            // toggle the selected ingredient in the array
             setSelectedIngredients((prevSelected) =>
                 prevSelected.includes(ingredient.name)
-                ? prevSelected.filter((name) => name !== ingredient.name) // Remove if already selected
-                : [...prevSelected, ingredient.name] // Add if not selected
+                // remove if already selected
+                ? prevSelected.filter((name) => name !== ingredient.name) 
+                // add if not selected
+                : [...prevSelected, ingredient.name]
             );
         }
     };

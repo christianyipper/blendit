@@ -1,60 +1,10 @@
-// function Complete({ allIngredients }) {
-//     return (
-//         <div>
-//             <h1 className="text-pink-500 mt-24">Congratulations!</h1>
-//             <p className="text-grey-500">You have successfully created your smoothie!</p>
-
-//             <div className="flex flex-row flex-wrap gap-4">
-//                 {allIngredients.length > 0
-//                 ?
-//                     allIngredients.map((item) => (
-//                     <img width="100px" src={item}></img>
-//                 ))
-//                     : "No items selected"}
-//                 <div 
-//                     className="smoothie-base rounded-full w-24 h-24"
-//                 ></div>
-//             </div>
-
-//         </div>
-//     );
-// }
-
 import { useState } from "react";
 import { smoothieData } from "../data/ingredients";
 import { useInView } from "react-intersection-observer";
 
-import Button from "../components/Button";
-import FruitButton from "../components/FruitButton";
 import Blender from "../assets/images/Blender.png";
-import Lid from "../assets/images/Lid.png";
 
-function Complete({ nextStep, currentStep, previousStep, updateIngredients, allIngredients }) {
-
-    // State to track all selected ingredients
-    const [selectedIngredients, setSelectedIngredients] = useState([]);
-    const handleClick = (ingredient) => {
-
-        // Check if the item is already selected
-        const isSelected = selectedIngredients.includes(ingredient.name);
-
-        // Allow toggling off the selected item or adding a new one only if less than 3 are selected
-        if (isSelected || selectedIngredients.length < 3) {
-            // Update the selected ingredients
-            updateIngredients(ingredient.image);
-
-            // Toggle the selected ingredient in the array
-            setSelectedIngredients((prevSelected) =>
-                prevSelected.includes(ingredient.name)
-                ? prevSelected.filter((name) => name !== ingredient.name) // Remove if already selected
-                : [...prevSelected, ingredient.name] // Add if not selected
-            );
-        }
-    };
-
-    // this is a variable that specifies the step
-    // this is how we get the ingredients for the current step 
-    const toppingIngredients = smoothieData.steps.find(step => step.id === 'topping').ingredients;
+function Complete({ allIngredients }) {
 
     let base = allIngredients[0]
     let fruit = allIngredients[1]

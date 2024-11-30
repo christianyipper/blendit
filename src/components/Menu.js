@@ -5,10 +5,18 @@ import BowlGreen from "../assets/hero/bowl-green.png";
 import BowlPink from "../assets/hero/bowl-pink.png";
 import BowlYellow from "../assets/hero/bowl-yellow.png";
 
+import { useIntersectionAnimation } from './Observer';
+
 function Menu() {
+    const animation = useIntersectionAnimation();
+    const animationDelay1 = useIntersectionAnimation('animate-fade', 100);
+    const animationDelay2 = useIntersectionAnimation('animate-fade', 200);
+    const animationDelay3 = useIntersectionAnimation('animate-fade', 300);
+
     return (
         <section className="grid items-center p-4 bg-grey-100 desktop:min-h-[920px] desktop:h-full">
             <div id="menu" className="relative grid scroll-mt-20">
+                <hgroup ref={animation.ref} className={animation.visibilityClass}>
                     <h2 className="
                         text-grey-900
                     ">
@@ -20,9 +28,10 @@ function Menu() {
                     ">
                         Varies by season.
                     </h4>
+                </hgroup>
                     
                     {/* Container for cards with responsive grid */}
-                    <div className="flex flex-row flex-wrap gap-4 justify-center mb-10">
+                    <div ref={animationDelay1.ref} className={`flex flex-row flex-wrap gap-4 justify-center mb-10 ${animationDelay1.visibilityClass}`}>
                         <MenuCard
                             heading="Berry Bowl"
                             headingColor="text-pink-900"
